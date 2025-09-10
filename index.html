@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manoj Kumar YMK - Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- General Reset ---------- */
+    body, html { margin:0; padding:0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; background: #f9f9f9; color:#222; line-height:1.7; }
+    a { text-decoration:none; color:#0077cc; font-weight:500; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- Dark Mode ---------- */
+    body.dark-mode { background:#121212; color:#f0f0f0; }
+    body.dark-mode header, body.dark-mode footer { background:#1f1f1f; color:#f0f0f0; }
+    body.dark-mode nav a:hover { color:#0077cc; }
+
+    /* ---------- Header ---------- */
+    header { background:#222; color:#fff; padding:15px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.3);}
+    header .logo { display:flex; align-items:center; gap:15px; }
+    header .logo img { width:60px; height:60px; border-radius:50%; }
+
+    /* ---------- Navigation ---------- */
+    nav { display:flex; justify-content:center; gap:15px; background:#333; padding:10px 0; position:sticky; top:75px; z-index:999;}
+    nav a { color:#fff; padding:8px 12px; border-radius:5px; transition:0.3s; }
+    nav a:hover { background:#0077cc; }
+
+    /* ---------- Sections ---------- */
+    section { padding:50px 20px; max-width:900px; margin:auto; }
+    h2 { font-family:'Poppins', sans-serif; font-weight:600; font-size:2rem; text-align:center; margin-bottom:25px; color:#0077cc; }
+    h3 { font-family:'Poppins', sans-serif; font-weight:500; font-size:1.5rem; margin-top:30px; color:#333; }
+    p { font-size:1rem; color:#555; margin-bottom:15px; }
+    ul { list-style-type: disc; padding-left:20px; margin-bottom:20px; }
+    ul li { font-size:1rem; margin-bottom:10px; color:#444; }
+    .awards li { display:flex; align-items:center; gap:10px; }
+    .contact p { margin:5px 0; font-size:1rem; }
+
+    /* ---------- Slideshow ---------- */
+    .slideshow-container { position:relative; max-width:900px; margin:auto; overflow:hidden; border-radius:10px; }
+    .slides { display:none; width:100%; }
+    .slides img { width:100%; border-radius:10px; }
+    .fade { animation:fade 1.5s; }
+    @keyframes fade { from {opacity:0.4} to {opacity:1} }
+
+    /* ---------- Footer ---------- */
+    footer { text-align:center; padding:15px; background:#222; color:#fff; }
+
+    /* ---------- Welcome Popup ---------- */
+    #welcomePopup { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; z-index:9999; }
+    #welcomePopup .popup-content { background:#fff; padding:30px; border-radius:10px; text-align:center; max-width:400px; position:relative; }
+    #welcomePopup button { margin-top:15px; padding:8px 15px; border:none; border-radius:5px; background:#0077cc; color:#fff; cursor:pointer; }
+
+    /* ---------- Balloons ---------- */
+    .balloon { position:absolute; bottom:-50px; width:20px; height:30px; border-radius:50%; animation:floatUp linear forwards; }
+    @keyframes floatUp { 0% { transform:translateY(0);} 100% { transform:translateY(-110vh);} }
+
+    /* ---------- Dark Mode Toggle Button ---------- */
+    #darkModeToggle { position:fixed; bottom:20px; right:20px; padding:10px 15px; background:#0077cc; color:#fff; border:none; border-radius:5px; cursor:pointer; z-index:1000; }
+  </style>
+</head>
+
+<body>
+
+  <!-- Welcome Popup -->
+  <div id="welcomePopup">
+    <div class="popup-content">
+      <h2>Welcome! 🎉</h2>
+      <p id="quoteText" style="font-style:italic; font-size:16px;">Loading quote...</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+    <div id="balloons"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="my_logo.jpg" alt="my logo" onerror="this.src='https://via.placeholder.com/60?text=Logo'">
+      <h1>Manoj Kumar YMK - Portfolio</h1>
+    </div>
+    <div>
+      👀 Visitors: <span id="visits" style="font-weight:bold; background:#0077cc; color:#fff; padding:5px 12px; border-radius:12px;">0</span>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#awards">Awards</a>
+    <a href="blog.html" onclick="alert('Blog coming soon!'); return false;">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Slideshow -->
+  <section class="slideshow-container">
+    <div class="slides fade"><img src="office.jpg" alt="office"></div>
+    <div class="slides fade"><img src="visit.jpg" alt="visit"></div>
+  </section>
+
+  <!-- Modernized Portfolio Content -->
+  <section id="about">
+    <h2>Professional Summary</h2>
+    <p>Finance & Operations professional with 4.5+ years of experience at Wells Fargo EGS, specializing in risk management, compliance, financial investigations, and process optimization.</p>
+    <p>Recognized with the <strong>Wells Fargo Gold Coin Award</strong> for outstanding performance and leadership.</p>
+    <p>Currently learning <strong>Data Science & Machine Learning</strong>: Python, SQL, Power BI, Tableau.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Finance & Operations</li>
+      <li>Risk Management & Compliance</li>
+      <li>Process Improvement</li>
+      <li>Financial Investigations</li>
+      <li>Data Science & Machine Learning</li>
+      <li>SQL, Python, NumPy, MongoDB</li>
+      <li>Power BI, Tableau, DAX, VBA Macros</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Professional Experience</h2>
+    <h3>Wells Fargo EGS | Finance & Operations Professional</h3>
+    <ul>
+      <li>4.5+ years of experience in Finance & Operations.</li>
+      <li>Specialized in risk management, compliance, and process improvement.</li>
+      <li>Consolidated and submitted accurate daily reports.</li>
+      <li>Conducted induction training and created effective training plans.</li>
+      <li>Provided process support and eliminated non-value-added tasks (NVA).</li>
+    </ul>
+  </section>
+
+  <section id="awards">
+    <h2>🏆 Achievements & Awards</h2>
+    <ul class="awards">
+      <li>🏅 Wells Fargo Gold Coin Award (2024)</li>
+      <li>🎖️ Manager’s Spotlight Award</li>
+      <li>🏆 First Feather Cap Award (twice)</li>
+      <li>⭐ Learning Champion</li>
+      <li>✅ Maintained 0 critical errors for 3.10 years</li>
+      <li>💡 Contributed to process automation</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:ymmanoj.kumar199@gmail.com">ymmanoj.kumar199@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/manoj-ymk-4188b1296" target="_blank">linkedin.com/in/manoj-ymk-4188b1296</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Manoj Kumar YMK | All Rights Reserved
+  </footer>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle">Toggle Dark Mode</button>
+
+  <!-- Scripts -->
+  <script>
+    /* ---------------- Visitor Counter ---------------- */
+    function animateCount(element, target) {
+      let current = 0;
+      const increment = Math.ceil(target / 100);
+      const interval = setInterval(() => {
+        current += increment;
+        if(current >= target) { current = target; clearInterval(interval);}
+        element.innerText = current;
+      }, 20);
+    }
+    fetch('https://api.countapi.xyz/hit/ymk-portfolio/visits')
+      .then(res => res.json())
+      .then(data => animateCount(document.getElementById('visits'), data.value));
+
+    /* ---------------- Slideshow ---------------- */
+    let slideIndex = 0;
+    function showSlides() {
+      const slides = document.getElementsByClassName("slides");
+      for(let i=0;i<slides.length;i++){ slides[i].style.display="none"; }
+      slideIndex++;
+      if(slideIndex>slides.length){ slideIndex=1; }
+      slides[slideIndex-1].style.display="block";
+      setTimeout(showSlides, 4000);
+    }
+    showSlides();
+
+    /* ---------------- Welcome Popup & Quote ---------------- */
+    const quotes = [
+      "Stay positive, work hard, make it happen!",
+      "Believe in yourself and all that you are.",
+      "Every day is a new opportunity to shine.",
+      "Keep going, your breakthrough is coming!",
+      "Happiness is homemade – smile today!",
+      "Small steps each day lead to big results.",
+      "Your attitude determines your direction.",
+      "Learning never stops; grow a little every day."
+    ];
+    document.getElementById("quoteText").textContent = quotes[Math.floor(Math.random()*quotes.length)];
+    function closePopup(){ document.getElementById("welcomePopup").style.display="none"; }
+
+    /* ---------------- Balloon Animation ---------------- */
+    function createBalloon() {
+      const balloon = document.createElement('div');
+      balloon.classList.add('balloon');
+      const colors = ['#ff4d4d','#ffcc00','#33cc33','#3399ff','#ff66cc'];
+      balloon.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+      balloon.style.left = Math.random()*90+'vw';
+      balloon.style.animationDuration = (5+Math.random()*5)+'s';
+      document.getElementById('balloons').appendChild(balloon);
+      setTimeout(()=>balloon.remove(),10000);
+    }
+    function launchBalloons(){ for(let i=0;i<30;i++){ setTimeout(createBalloon,i*200); } }
+    launchBalloons();
+
+    /* ---------------- Dark Mode ---------------- */
+    document.getElementById('darkModeToggle').addEventListener('click',()=>{
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+
+</body>
+</html>
