@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manoj Kumar YMK - Portfolio</title>
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
+  <!-- AOS library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
   <style>
     /* ---------- General Reset ---------- */
-    body, html { margin:0; padding:0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; background: #f9f9f9; color:#222; line-height:1.7; }
+    body, html { margin:0; padding:0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; background: #f9f9f9; color:#222; line-height:1.7; overflow-x: hidden; cursor:none; }
     a { text-decoration:none; color:#0077cc; font-weight:500; }
     a:hover { text-decoration: underline; }
 
@@ -50,67 +53,110 @@
     footer { text-align:center; padding:15px; background:#222; color:#fff; }
 
     /* ---------- Welcome Popup ---------- */
-    #welcomePopup { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; z-index:9999; }
-    #welcomePopup .popup-content { background:#fff; padding:30px; border-radius:10px; text-align:center; max-width:400px; position:relative; }
-    #welcomePopup button { margin-top:15px; padding:8px 15px; border:none; border-radius:5px; background:#0077cc; color:#fff; cursor:pointer; }
+    #welcomePopup { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; z-index:9999; backdrop-filter: blur(5px);}
+    #welcomePopup .popup-content { background:#fff; padding:30px; border-radius:10px; text-align:center; max-width:400px; position:relative; overflow:hidden;}
+    #welcomePopup button { margin-top:20px; padding:10px 15px; border:none; border-radius:5px; background:#0077cc; color:#fff; cursor:pointer; }
 
-    /* ---------- Balloons ---------- */
-    .balloon { position:absolute; bottom:-50px; width:20px; height:30px; border-radius:50%; animation:floatUp linear forwards; }
-    @keyframes floatUp { 0% { transform:translateY(0);} 100% { transform:translateY(-110vh);} }
+    /* ---------- Quote ---------- */
+    #quoteText { font-style:italic; font-size:1.2rem; color:#0077cc; margin-top:10px; }
+    #balloons { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; }
 
     /* ---------- Dark Mode Toggle Button ---------- */
     #darkModeToggle { position:fixed; bottom:20px; right:20px; padding:10px 15px; background:#0077cc; color:#fff; border:none; border-radius:5px; cursor:pointer; z-index:1000; }
+
+    /* ---------- Music Button ---------- */
+    #musicButton { position:fixed; bottom:70px; right:20px; padding:10px 15px; background:#ff3f8e; color:#fff; border:none; border-radius:5px; cursor:pointer; z-index:1000; }
+
+    /* ---------- Mobile Responsiveness ---------- */
+    @media (max-width: 600px) {
+      header { flex-direction: column; text-align:center; gap:10px; }
+      nav { flex-wrap: wrap; gap:5px; padding:8px 0; }
+      nav a { padding:6px 10px; font-size:0.9rem; }
+      section { padding:30px 15px; }
+      h2 { font-size:1.5rem; }
+      h3 { font-size:1.2rem; }
+      ul li { font-size:0.9rem; }
+      .slideshow-container { max-width:100%; }
+      #quoteText { font-size:1rem; }
+    }
+
+    /* ---------- Glowing Cursor Trail ---------- */
+    .trailDot { position: fixed; width: 20px; height: 20px; border-radius: 50%; pointer-events: none; background: #ff3f8e; box-shadow: 0 0 10px #ff3f8e, 0 0 20px #ff3f8e, 0 0 30px #ff3f8e; transform: translate(-50%, -50%); transition: transform 0.1s ease, background 0.3s, box-shadow 0.3s; z-index: 10000; }
+
+    /* ---------- Balloon Style ---------- */
+    .balloon { position:absolute; bottom:-50px; border-radius:50%; animation:floatUp linear forwards; }
+    @keyframes floatUp { 0% { transform:translateY(0);} 100% { transform:translateY(-110vh);} }
+
+    /* ---------- Lighting Flash Effect ---------- */
+    body.flash-effect { animation: flash 0.5s ease; }
+    @keyframes flash {
+      0% { box-shadow: inset 0 0 50px rgba(255,255,255,0.5); }
+      50% { box-shadow: inset 0 0 200px rgba(255,255,255,0.7); }
+      100% { box-shadow: inset 0 0 50px rgba(255,255,255,0); }
+    }
+
+    /* ---------- Sparkle Particle ---------- */
+    .sparkle {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      opacity: 0.9;
+      animation: sparkleFall linear forwards;
+    }
+    @keyframes sparkleFall {
+      0% { transform: translateY(0) rotate(0deg); opacity:1; }
+      100% { transform: translateY(50vh) rotate(360deg); opacity:0; }
+    }
   </style>
 </head>
-
 <body>
 
   <!-- Welcome Popup -->
   <div id="welcomePopup">
     <div class="popup-content">
-      <h2>Welcome! 🎉</h2>
-      <p id="quoteText" style="font-style:italic; font-size:16px;">Loading quote...</p>
-      <button onclick="closePopup()">Close</button>
+      <h2>Welcome to My Portfolio!</h2>
+      <p id="quoteText"></p>
+      <div id="balloons"></div>
+      <button id="enterButton">Enter Website</button>
     </div>
-    <div id="balloons"></div>
   </div>
 
   <!-- Header -->
-  <header>
+  <header data-aos="fade-down">
     <div class="logo">
       <img src="my_logo.jpg" alt="my logo" onerror="this.src='https://via.placeholder.com/60?text=Logo'">
       <h1>Manoj Kumar YMK - Portfolio</h1>
     </div>
-    <div>
-      👀 Visitors: <span id="visits" style="font-weight:bold; background:#0077cc; color:#fff; padding:5px 12px; border-radius:12px;">0</span>
-    </div>
   </header>
 
   <!-- Navigation -->
-  <nav>
+  <nav data-aos="fade-up">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#awards">Awards</a>
-    <a href="blog.html" onclick="alert('Blog coming soon!'); return false;">Blog</a>
+    <a href="blog.html" target="_blank">Blog</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <!-- Slideshow -->
-  <section class="slideshow-container">
+  <section class="slideshow-container" data-aos="fade-up">
     <div class="slides fade"><img src="office.jpg" alt="office"></div>
     <div class="slides fade"><img src="visit.jpg" alt="visit"></div>
   </section>
 
-  <!-- Modernized Portfolio Content -->
-  <section id="about">
+  <!-- Portfolio Sections -->
+  <section id="about" data-aos="fade-right">
     <h2>Professional Summary</h2>
     <p>Finance & Operations professional with 4.5+ years of experience at Wells Fargo EGS, specializing in risk management, compliance, financial investigations, and process optimization.</p>
     <p>Recognized with the <strong>Wells Fargo Gold Coin Award</strong> for outstanding performance and leadership.</p>
     <p>Currently learning <strong>Data Science & Machine Learning</strong>: Python, SQL, Power BI, Tableau.</p>
   </section>
 
-  <section id="skills">
+  <section id="skills" data-aos="fade-left">
     <h2>Skills</h2>
     <ul>
       <li>Finance & Operations</li>
@@ -123,7 +169,7 @@
     </ul>
   </section>
 
-  <section id="experience">
+  <section id="experience" data-aos="fade-right">
     <h2>Professional Experience</h2>
     <h3>Wells Fargo EGS | Finance & Operations Professional</h3>
     <ul>
@@ -135,7 +181,7 @@
     </ul>
   </section>
 
-  <section id="awards">
+  <section id="awards" data-aos="fade-left">
     <h2>🏆 Achievements & Awards</h2>
     <ul class="awards">
       <li>🏅 Wells Fargo Gold Coin Award (2024)</li>
@@ -147,37 +193,29 @@
     </ul>
   </section>
 
-  <section id="contact" class="contact">
+  <section id="contact" class="contact" data-aos="fade-up">
     <h2>Contact Me</h2>
     <p>Email: <a href="mailto:ymmanoj.kumar199@gmail.com">ymmanoj.kumar199@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/manoj-ymk-4188b1296" target="_blank">linkedin.com/in/manoj-ymk-4188b1296</a></p>
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer data-aos="fade-up">
     &copy; 2025 Manoj Kumar YMK | All Rights Reserved
   </footer>
 
   <!-- Dark Mode Toggle -->
   <button id="darkModeToggle">Toggle Dark Mode</button>
 
-  <!-- Scripts -->
-  <script>
-    /* ---------------- Visitor Counter ---------------- */
-    function animateCount(element, target) {
-      let current = 0;
-      const increment = Math.ceil(target / 100);
-      const interval = setInterval(() => {
-        current += increment;
-        if(current >= target) { current = target; clearInterval(interval);}
-        element.innerText = current;
-      }, 20);
-    }
-    fetch('https://api.countapi.xyz/hit/ymk-portfolio/visits')
-      .then(res => res.json())
-      .then(data => animateCount(document.getElementById('visits'), data.value));
+  <!-- Music Button -->
+  <button id="musicButton">Pause Music</button>
 
-    /* ---------------- Slideshow ---------------- */
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+
+    // Slideshow
     let slideIndex = 0;
     function showSlides() {
       const slides = document.getElementsByClassName("slides");
@@ -189,39 +227,180 @@
     }
     showSlides();
 
-    /* ---------------- Welcome Popup & Quote ---------------- */
+    // Dark mode auto-detect
+    if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+      document.body.classList.add('dark-mode');
+    }
+
+    // Dark Mode Toggle with Lighting Effect
+    document.getElementById('darkModeToggle').addEventListener('click',()=>{
+      document.body.classList.toggle('dark-mode');
+      document.body.classList.add('flash-effect');
+      setTimeout(()=>{ document.body.classList.remove('flash-effect'); },500);
+    });
+
+    // Welcome quote
     const quotes = [
       "Stay positive, work hard, make it happen!",
       "Believe in yourself and all that you are.",
-      "Every day is a new opportunity to shine.",
+      "Every day is a new opportunity to shine!",
       "Keep going, your breakthrough is coming!",
       "Happiness is homemade – smile today!",
-      "Small steps each day lead to big results.",
-      "Your attitude determines your direction.",
-      "Learning never stops; grow a little every day."
+      "Small steps each day lead to big results!",
+      "Your attitude determines your direction!",
+      "Learning never stops; grow a little every day!"
     ];
-    document.getElementById("quoteText").textContent = quotes[Math.floor(Math.random()*quotes.length)];
-    function closePopup(){ document.getElementById("welcomePopup").style.display="none"; }
+    const quoteText = document.getElementById("quoteText");
+    quoteText.innerText = quotes[Math.floor(Math.random()*quotes.length)];
 
-    /* ---------------- Balloon Animation ---------------- */
+    // Continuous balloons
     function createBalloon() {
       const balloon = document.createElement('div');
       balloon.classList.add('balloon');
       const colors = ['#ff4d4d','#ffcc00','#33cc33','#3399ff','#ff66cc'];
-      balloon.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
-      balloon.style.left = Math.random()*90+'vw';
-      balloon.style.animationDuration = (5+Math.random()*5)+'s';
+      balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.left = Math.random() * 80 + '%';
+      balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
+      balloon.style.width = 15 + Math.random() * 15 + 'px';
+      balloon.style.height = 20 + Math.random() * 20 + 'px';
+      balloon.style.opacity = Math.random() * 0.8 + 0.2;
       document.getElementById('balloons').appendChild(balloon);
-      setTimeout(()=>balloon.remove(),10000);
+      setTimeout(() => balloon.remove(), 10000);
     }
-    function launchBalloons(){ for(let i=0;i<30;i++){ setTimeout(createBalloon,i*200); } }
-    launchBalloons();
+    let balloonInterval = setInterval(() => {
+      if(document.getElementById('welcomePopup').style.display !== 'none') createBalloon();
+    }, 200);
 
-    /* ---------------- Dark Mode ---------------- */
-    document.getElementById('darkModeToggle').addEventListener('click',()=>{
-      document.body.classList.toggle('dark-mode');
+    document.getElementById("enterButton").addEventListener("click", () => {
+      document.getElementById("welcomePopup").style.display = "none";
+      clearInterval(balloonInterval);
     });
-  </script>
 
+    // Music autoplay + play/pause
+    const musicList = ['music1.mp3','music2.mp3','music3.mp3','music4.mp3','music5.mp3'];
+    let currentMusic = null;
+    let isPlaying = true;
+    const musicButton = document.getElementById('musicButton');
+
+    window.addEventListener('load', () => {
+      const randomIndex = Math.floor(Math.random()*musicList.length);
+      currentMusic = new Audio(musicList[randomIndex]);
+      currentMusic.loop = false; // remove loop to trigger party at end
+      currentMusic.play().catch(e=>console.log('Autoplay blocked:', e));
+      
+      currentMusic.addEventListener('ended', startPartyEffect); // party starts when music ends
+    });
+
+    musicButton.addEventListener('click', () => {
+      if(isPlaying){
+        currentMusic.pause();
+        isPlaying = false;
+        musicButton.innerText = "Play Music";
+      } else {
+        const randomIndex = Math.floor(Math.random()*musicList.length);
+        currentMusic.src = musicList[randomIndex];
+        currentMusic.play();
+        isPlaying = true;
+        musicButton.innerText = "Pause Music";
+        currentMusic.addEventListener('ended', startPartyEffect);
+      }
+    });
+
+    // Glowing Cursor Trail
+    const trailColors = ['#FF3F8E','#04C2C9','#2E55C1','#FFAA00','#8DFF33','#FF3F8E'];
+    const trailCount = 8;
+    const trailDots = [];
+    const container = document.body;
+    for (let i = 0; i < trailCount; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('trailDot');
+      container.appendChild(dot);
+      trailDots.push(dot);
+    }
+
+    let mouseX = 0, mouseY = 0;
+    const positions = Array(trailCount).fill({x:0,y:0});
+
+    document.addEventListener('mousemove', e=>{
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateTrail() {
+      positions.unshift({x:mouseX,y:mouseY});
+      positions.pop();
+      trailDots.forEach((dot,i)=>{
+        const pos = positions[i];
+        dot.style.left = pos.x + 'px';
+        dot.style.top = pos.y + 'px';
+        const color = trailColors[(i+Math.floor(Date.now()/400))%trailColors.length];
+        dot.style.background = color;
+        dot.style.boxShadow = `0 0 10px ${color},0 0 20px ${color},0 0 30px ${color}`;
+      });
+      requestAnimationFrame(animateTrail);
+    }
+    animateTrail();
+
+    // ---------- Party Effects ----------
+    let partyMode = false;
+
+    function createPartyBalloon() {
+      const balloon = document.createElement('div');
+      balloon.classList.add('balloon');
+      const colors = ['#FF3F8E','#FFAA00','#00FF7F','#00FFFF','#3399FF'];
+      balloon.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+      balloon.style.left = Math.random()*100+'%';
+      balloon.style.width = 20 + Math.random()*20+'px';
+      balloon.style.height = 25 + Math.random()*25+'px';
+      balloon.style.animationDuration = 3 + Math.random()*3+'s';
+      document.body.appendChild(balloon);
+      setTimeout(()=>balloon.remove(), 5000);
+    }
+
+    function createConfetti() {
+      const confetti = document.createElement('div');
+      confetti.classList.add('sparkle');
+      const colors = ['#FFD700','#FF4500','#00FFFF','#FF69B4','#7CFC00','#00FF7F'];
+      confetti.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+      confetti.style.left = Math.random()*100+'vw';
+      confetti.style.top = '-10px';
+      confetti.style.width = 5 + Math.random()*5+'px';
+      confetti.style.height = 5 + Math.random()*5+'px';
+      confetti.style.animationDuration = 1 + Math.random()*1+'s';
+      document.body.appendChild(confetti);
+      setTimeout(()=>confetti.remove(), 1500);
+    }
+
+    document.addEventListener('mousemove', e => {
+      if(!partyMode) return;
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      const colors = ['#FFD700','#FF4500','#00FFFF','#FF69B4','#7CFC00','#00FF7F'];
+      sparkle.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+      sparkle.style.left = e.clientX+'px';
+      sparkle.style.top = e.clientY+'px';
+      sparkle.style.width = 4 + Math.random()*6+'px';
+      sparkle.style.height = 4 + Math.random()*6+'px';
+      sparkle.style.animationDuration = 1 + Math.random()*1.5+'s';
+      document.body.appendChild(sparkle);
+      setTimeout(()=>sparkle.remove(),1500);
+    });
+
+    function startPartyEffect() {
+      partyMode = true;
+      const partyInterval = setInterval(()=>{
+        createPartyBalloon();
+        createConfetti();
+      },100);
+
+      document.body.classList.add('flash-effect');
+      setTimeout(()=>{ document.body.classList.remove('flash-effect'); },5000);
+
+      setTimeout(()=>{
+        clearInterval(partyInterval);
+        partyMode = false;
+      },8000);
+    }
+  </script>
 </body>
 </html>
