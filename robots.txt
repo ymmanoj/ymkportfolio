@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ymmanoj.github.io/ymkportfolio/sitemap.xml
