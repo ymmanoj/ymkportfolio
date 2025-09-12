@@ -4,7 +4,7 @@
   <!-- Basic Meta Tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manoj Kumar YMK - Portfolio</title>
+  <title>Manoj Kumar YM - Portfolio</title>
   <meta name="description" content="Portfolio of Manoj Kumar YMK - Developer and Designer. Explore projects, skills, and contact information.">
   <meta name="keywords" content="Manoj Kumar YMK, Portfolio, Developer, Designer, Projects, Skills">
   <meta name="author" content="Manoj Kumar YMK">
@@ -31,11 +31,14 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://ymmanoj.github.io/ymkportfolio/">
 
-  <!-- Google Fonts (optional) -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- AOS library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 </head>
 
   <title>Manoj Kumar YMK - Portfolio</title>
@@ -43,17 +46,126 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- AOS library -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 <style>
-  /* ---------- Your existing CSS ---------- */
+/* Base Glow Text */
+.glow-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  animation: neonGlow 2s ease-in-out infinite alternate;
+  z-index: 1;
+}
 
-  /* ---------- Modern Floating Buttons ---------- */
-  #darkModeToggle,
-  #musicButton {
+/* Neon Glow Animation */
+@keyframes neonGlow {
+  0% {
+    text-shadow: 
+      0 0 5px #ff3f8e,
+      0 0 10px #ff3f8e,
+      0 0 20px #ff3f8e,
+      0 0 30px #ff66cc,
+      0 0 40px #ff66cc;
+  }
+  100% {
+    text-shadow: 
+      0 0 10px #ff3f8e,
+      0 0 20px #ff3f8e,
+      0 0 30px #ff3f8e,
+      0 0 40px #ff66cc,
+      0 0 50px #ff66cc;
+  }
+}
+
+/* Moving Gradient Texture */
+.textured-text {
+  background: linear-gradient(270deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 8s ease infinite;
+}
+
+/* Gradient Movement Animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+  /* Modern Floating Buttons - Always on top */
+  /* Navigation Buttons - Neon Glass Style */
+nav a {
+  display: inline-block;
+  padding: 12px 22px;
+  margin: 0 8px;
+  border-radius: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.05); /* subtle glass base */
+  backdrop-filter: blur(8px); /* glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(255,255,255,0.1);
+  transition: all 0.4s ease;
+  
+  /* Floating Animation */
+  animation: floatNav 4s ease-in-out infinite;
+  overflow: hidden;
+}
+
+/* Floating Keyframes */
+@keyframes floatNav {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Hover Effects */
+nav a:hover {
+  color: #fff;
+  transform: translateY(-8px) scale(1.1);
+  box-shadow: 0 0 15px rgba(255,63,142,0.6), 0 0 30px rgba(255,255,255,0.3);
+  background: linear-gradient(135deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
+  background-size: 400% 400%;
+  animation: gradientShift 4s ease infinite, floatNav 4s ease-in-out infinite;
+}
+
+/* Glow Effect on Hover */
+nav a::after {
+  content: '';
+  position: absolute;
+  top: -5px; left: -5px; width: calc(100% + 10px); height: calc(100% + 10px);
+  border-radius: 15px;
+  box-shadow: 0 0 0 rgba(255,255,255,0);
+  transition: box-shadow 0.3s ease;
+}
+
+nav a:hover::after {
+  box-shadow: 0 0 20px rgba(255,255,255,0.3), 0 0 40px rgba(255,63,142,0.6);
+}
+
+/* Gradient Animation Keyframes */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Active / Selected Page Styling */
+nav a.active {
+  background: linear-gradient(135deg, #ff3f8e, #ffcc00, #33cc33);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255,63,142,0.7);
+  transform: translateY(-2px);
+}
+
+#darkModeToggle,
+#musicButton {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
     padding: 12px 18px;
     border: none;
     border-radius: 10px;
@@ -61,35 +173,87 @@
     cursor: pointer;
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     transition: 0.3s, transform 0.2s;
-    z-index: 10001; /* above glowing cursor */
-  }
+    z-index: 100000; /* very high to stay above everything */
+}
 
-  #darkModeToggle {
+/* Dark Mode Button */
+#darkModeToggle {
     background: #0077cc;
     color: #fff;
     right: 20px;
-  }
-
-  #darkModeToggle:hover {
+    bottom: 20px;
+}
+#darkModeToggle:hover {
     background: #005fa3;
     transform: translateY(-3px);
-  }
+}
 
-  #musicButton {
+/* Music Button */
+#musicButton {
     background: #ff3f8e;
     color: #fff;
     right: 20px;
     bottom: 70px; /* slightly above dark mode button */
-  }
-
-  #musicButton:hover {
+}
+#musicButton:hover {
     background: #e62e75;
     transform: translateY(-3px);
-  }
+}
+  /* ---------- Your existing CSS ---------- */
+#welcome-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #0cd30c;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 25px rgba(230, 10, 10, 0.3);
+      z-index: 99999; /* always on top */
+      display: none;
+    }
+
+    #thankYouPopup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.5);
+      
 </style>
 
   <style>
-    
+    /* Butterfly animation */
+.butterfly {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-image: url('butterly.png'); /* Replace with your butterfly image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  animation: flutter linear forwards;
+}
+
+@keyframes flutter {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  50% {
+    transform: translate(calc(100vw * var(--x)), calc(-200px * var(--y))) rotate(360deg);
+  }
+  100% {
+    transform: translate(calc(100vw * var(--x)), calc(-400px * var(--y))) rotate(720deg);
+    opacity: 0;
+  }
+}
+
     /* ---------- General Reset ---------- */
     body, html { margin:0; padding:0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; background: #f9f9f9; color:#222222; line-height:1.7; overflow-x: hidden; cursor:none; }
     a { text-decoration:none; color:#0077cc; font-weight:500; }
@@ -208,25 +372,93 @@
   <header data-aos="fade-down">
     <div class="logo">
       <img src="my_logo.jpg" alt="my logo" onerror="this.src='https://via.placeholder.com/60?text=Logo'">
-      <h1>Manoj Kumar YMK - Portfolio</h1>
-    </div>
-   <a id="downloadResume" href="resume.pdf" download
-   style="padding: 8px 12px; background:#0077cc; color:#fff; border-radius:5px; text-decoration:none; font-weight:500; position:absolute; right:20px; top:50%; transform:translateY(-50%)">
-   Download Resume
-</a>
+      <h1 class="glow-text textured-text sparkle-text">Manoj Kumar YM - Portfolio</h1>
 
+
+    </div>
+<!-- Download Resume Button -->
+<a href="#" class="party-download-btn" onclick="downloadResume(event)">📄 Download Resume</a>
+
+<!-- Thank You Popup -->
+<div id="thankYouPopup">Thank you! Your resume download will start shortly.</div>
+
+<script>
+function downloadResume(event) {
+  event.preventDefault(); // Prevent default link behavior
+
+  // Trigger download
+  const link = document.createElement('a');
+  link.href = 'resume.pdf'; // path to your resume
+  link.download = 'resume.pdf';
+  link.click();
+
+  // Show thank you popup
+  alert("Thank you! Your resume download has started.");
+}
+</script>
   </header>
+<body>
+<style>
+.party-download-btn {
+  position: fixed; /* stays on screen */
+  right: 20px;
+  bottom: 45px; /* adjusted lower */
+  padding: 15px 35px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 50px;
+  z-index: 10000;
+  background: linear-gradient(270deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
+  background-size: 1000% 1000%;
+  box-shadow: 0 0 20px #ff3f8e, 0 0 40px #ffcc00, 0 0 60px #33cc33;
+  animation: gradientMove 5s ease infinite, bounce 2s infinite, neonGlow 2s ease-in-out infinite alternate;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Neon Glow */
+@keyframes neonGlow {
+  0% { box-shadow: 0 0 15px #ff3f8e, 0 0 30px #ffcc00, 0 0 45px #33cc33; }
+  100% { box-shadow: 0 0 30px #ff3f8e, 0 0 60px #ffcc00, 0 0 90px #33cc33; }
+}
+
+/* Gradient animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hover Effect */
+.party-download-btn:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 0 35px #ff3f8e, 0 0 70px #ffcc00, 0 0 105px #33cc33;
+  background: linear-gradient(270deg, #33cc33, #3399ff, #ff66cc, #ff3f8e, #ffcc00);
+}
+</style>
+
+</body>
 
   <!-- Navigation -->
   <nav data-aos="fade-up">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#awards">Awards</a>
-    <a href="#blog">Blog</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div id="navSparkles"></div>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#awards">Awards</a>
+  <a href="#blog">Blog</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
 
   <!-- Slideshow -->
   <section class="slideshow-container" data-aos="fade-up">
@@ -497,6 +729,7 @@ window.addEventListener('DOMContentLoaded', () => {
       isPlaying = true;
     }
   });
+
 </script>
 <!-- Thank You Popup -->
 <div id="thankYouPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); align-items:center; justify-content:center; z-index:10000; backdrop-filter: blur(5px);">
@@ -544,8 +777,205 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
-</body>
-</html>
+<script>
+  const downloadBtn = document.getElementById("downloadResume");
+  const thankPopup = document.getElementById("thankYouPopup");
+  const closeThank = document.getElementById("closeThankYou");
+
+  downloadBtn.addEventListener("click", (e) => {
+    e.preventDefault(); 
+    thankPopup.style.display = "flex"; // show thank you popup
+
+    // Start balloons
+    let balloonInterval = setInterval(() => {
+      if (thankPopup.style.display !== "none") createThankBalloon();
+    }, 300);
+
+    // Auto download after 3 seconds
+    setTimeout(() => {
+      const link = document.createElement("a");
+      link.href = downloadBtn.href;   // path to resume.pdf
+      link.download = "resume.pdf";   // force download
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }, 3000);
+
+    // Stop balloons when popup is closed
+    closeThank.addEventListener("click", () => {
+      thankPopup.style.display = "none";
+      clearInterval(balloonInterval);
+    });
+  });
+
+  // Balloon creation function
+  function createThankBalloon() {
+    const balloon = document.createElement("div");
+    balloon.classList.add("balloon");
+    const colors = ["#ff4d4d", "#ffcc00", "#33cc33", "#3399ff", "#ff66cc", "#ff3f8e"];
+    balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    balloon.style.left = Math.random() * 80 + "%";
+    balloon.style.animationDuration = (5 + Math.random() * 5) + "s";
+    balloon.style.width = 15 + Math.random() * 15 + "px";
+    balloon.style.height = 20 + Math.random() * 20 + "px";
+    balloon.style.opacity = Math.random() * 0.8 + 0.2;
+    document.getElementById("thankBalloons").appendChild(balloon);
+    setTimeout(() => balloon.remove(), 10000);
+  }
+</script>
+<script>
+  function createPartyBalloon() {
+    const balloon = document.createElement('div');
+    balloon.classList.add('balloon');
+    const colors = ['#ff4d4d','#ffcc00','#33cc33','#3399ff','#ff66cc','#ff3f8e'];
+    balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    balloon.style.left = Math.random() * 100 + '%';
+    balloon.style.bottom = '-50px';
+    balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
+    balloon.style.width = 15 + Math.random() * 15 + 'px';
+    balloon.style.height = 20 + Math.random() * 20 + 'px';
+    balloon.style.opacity = Math.random() * 0.8 + 0.2;
+    document.body.appendChild(balloon);
+    setTimeout(() => balloon.remove(), 10000);
+  }
+
+  // Create balloons continuously
+  setInterval(createPartyBalloon, 300);
+</script>
+<script>
+  function createSparkle() {
+    const sparkle = document.createElement('div');
+    sparkle.classList.add('sparkle');
+    sparkle.style.background = ['#ff3f8e','#04C2C9','#2E55C1','#FFAA00','#8DFF33'][Math.floor(Math.random()*5)];
+    sparkle.style.left = Math.random() * window.innerWidth + 'px';
+    sparkle.style.top = Math.random() * window.innerHeight + 'px';
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 2000);
+  }
+
+  setInterval(createSparkle, 200); // create sparkles continuously
+</script>
+<script>
+  function randomFlash() {
+    document.body.classList.add('flash-effect');
+    setTimeout(() => document.body.classList.remove('flash-effect'), 300);
+  }
+
+  // Random flash every 3-8 seconds
+  setInterval(() => {
+    if(Math.random() < 0.5) randomFlash();
+  }, 3000 + Math.random()*5000);
+</script>
+<script>
+const downloadBtn = document.getElementById("downloadResume");
+const feedbackPopup = document.getElementById("feedbackPopup");
+const closeFeedback = document.getElementById("closeFeedback");
+const feedbackForm = document.getElementById("feedbackForm");
+function createButterfly() {
+  const butterfly = document.createElement('div');
+  butterfly.classList.add('butterfly');
+
+  // Random horizontal position
+  butterfly.style.left = Math.random() * 90 + 'vw';
+  butterfly.style.top = '60px'; // start near header
+
+  // Random speed & path multiplier
+  butterfly.style.setProperty('--x', Math.random());
+  butterfly.style.setProperty('--y', Math.random());
+
+  // Random size
+  const size = 20 + Math.random() * 20;
+  butterfly.style.width = size + 'px';
+  butterfly.style.height = size + 'px';
+
+  document.body.appendChild(butterfly);
+
+  // Remove after animation
+  setTimeout(() => butterfly.remove(), 8000); // matches CSS animation duration
+}
+
+// Generate butterflies every 500ms
+setInterval(createButterfly, 500);
+// Generate sparkles continuously behind nav buttons
+const navSparklesContainer = document.getElementById("navSparkles");
+
+function createNavSparkle() {
+  const sparkle = document.createElement("div");
+  sparkle.classList.add("nav-sparkle");
+
+  // Random position within nav
+  const navWidth = navSparklesContainer.offsetWidth;
+  const navHeight = navSparklesContainer.offsetHeight;
+  sparkle.style.left = Math.random() * navWidth + "px";
+  sparkle.style.top = Math.random() * navHeight + "px";
+
+  // Random color
+  const colors = ["#ff3f8e","#ffcc00","#33cc33","#3399ff","#ff66cc"];
+  sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+  // Random animation duration
+  sparkle.style.animationDuration = (1 + Math.random() * 1.5) + "s";
+
+  navSparklesContainer.appendChild(sparkle);
+
+  // Remove sparkle after animation
+  setTimeout(() => sparkle.remove(), 2500);
+}
+
+// Create sparkles every 200ms
+setInterval(createNavSparkle, 200);
+const downloadBtn = document.getElementById("downloadResume");
+const feedbackPopup = document.getElementById("feedbackPopup");
+const closeFeedback = document.getElementById("closeFeedback");
+const feedbackForm = document.getElementById("feedbackForm");
+const thankPopup = document.getElementById("thankYouPopup");
+
+downloadBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  feedbackPopup.style.display = "flex";
+});
+
+// Close feedback popup without submitting
+closeFeedback.addEventListener("click", () => {
+  feedbackPopup.style.display = "none";
+});
+
+// Handle feedback submission
+feedbackForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const feedbackText = document.getElementById("feedbackText").value.trim();
+  if(feedbackText === "") {
+    alert("Please enter your feedback before submitting!");
+    return;
+  }
+
+  // Here you can also save feedback to database if needed
+
+  feedbackPopup.style.display = "none";
+
+  // Show Thank You popup
+  thankPopup.style.display = "flex";
+  let balloonInterval = setInterval(() => { if(thankPopup.style.display !== "none") createThankBalloon(); }, 300);
+
+  // Auto download resume after 3 seconds
+  setTimeout(() => {
+    const link = document.createElement("a");
+    link.href = downloadBtn.href;
+    link.download = "resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }, 3000);
+
+  // Stop balloons when popup is closed
+  document.getElementById("closeThankYou").addEventListener("click", () => {
+    thankPopup.style.display = "none";
+    clearInterval(balloonInterval);
+  });
+});
+
+</script>
 
 </body>
 </html>
+

@@ -46,3 +46,34 @@
     aspect-ratio: 1/1;
   }
 }
+/* Sparkle Container inside Nav */
+#navSparkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Don't block clicks */
+  overflow: visible;
+  z-index: 0;
+}
+
+/* Individual Sparkle */
+.nav-sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff3f8e;
+  opacity: 0.8;
+  filter: blur(1.5px);
+  pointer-events: none;
+  animation: sparkleMove linear forwards;
+}
+
+/* Sparkle Animation */
+@keyframes sparkleMove {
+  0% { transform: translateY(0) scale(1); opacity:1; }
+  50% { transform: translateY(-20px) scale(1.2); opacity:0.8; }
+  100% { transform: translateY(-40px) scale(0.8); opacity:0; }
+}
