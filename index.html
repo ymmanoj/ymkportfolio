@@ -707,16 +707,6 @@ nav a:hover::after {
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    const isMobile = window.innerWidth < 768;
-
-// Stop cursor trail, sparkles, and extra balloons on mobile
-if(isMobile) {
-  // Stop sparkle interval
-  clearInterval(createSparkle);
-
-  // Stop balloon intervals
-  clearInterval(balloonInterval);
-}
 
     // Initialize AOS
     AOS.init({ duration: 1000 });
@@ -926,7 +916,7 @@ if(isMobile) {
       document.body.appendChild(sparkle);
       setTimeout(() => sparkle.remove(), 2000);
     }
-    
+
     setInterval(createSparkle, 200);
 
     // Random flash effect
