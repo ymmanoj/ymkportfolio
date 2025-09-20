@@ -4,912 +4,262 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manoj Kumar YM - Portfolio</title>
-  <meta name="description" content="Portfolio of Manoj Kumar YMK - Developer and Designer. Explore projects, skills, and contact information.">
-  <meta name="keywords" content="Manoj Kumar YMK, Portfolio, Developer, Designer, Projects, Skills">
-  <meta name="author" content="Manoj Kumar YMK">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="Manoj Kumar YMK - Portfolio">
-  <meta property="og:description" content="Portfolio of Manoj Kumar YMK - Developer and Designer. Explore projects, skills, and contact information.">
-  <meta property="og:image" content="https://ymmanoj.github.io/ymkportfolio/preview-image.jpg">
-  <meta property="og:url" content="https://ymmanoj.github.io/ymkportfolio/">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Manoj Kumar YMK - Portfolio">
-  <meta name="twitter:description" content="Portfolio of Manoj Kumar YMK - Developer and Designer. Explore projects, skills, and contact information.">
-  <meta name="twitter:image" content="https://ymmanoj.github.io/ymkportfolio/preview-image.jpg">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://ymmanoj.github.io/ymkportfolio/">
-
+  
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- AOS library -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-  
   <style>
     /* ---------- General Reset ---------- */
-    body, html { 
-      margin:0; 
-      padding:0; 
-      font-family: 'Roboto', sans-serif; 
-      scroll-behavior: smooth; 
-      background: #f9f9f9; 
-      color:#222222; 
-      line-height:1.7; 
-      overflow-x: hidden; 
-    }
-    
-    a { 
-      text-decoration:none; 
-      color:#0077cc; 
-      font-weight:500; 
-    }
-    
-    a:hover { 
-      text-decoration: underline; 
-    }
+    body, html { margin:0; padding:0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; background: #f9f9f9; color:#222; line-height:1.7; }
+    a { text-decoration:none; color:#0077cc; font-weight:500; }
+    a:hover { text-decoration: underline; }
 
     /* ---------- Dark Mode ---------- */
-    body.dark-mode { 
-      background:#121212; 
-      color:#f0f0f0; 
-    }
-    
-    body.dark-mode header, 
-    body.dark-mode footer { 
-      background:#1f1f1f; 
-      color:#f0f0f0; 
-    }
-    
-    body.dark-mode nav a:hover { 
-      color:#0077cc; 
-    }
+    body.dark-mode { background:#121212; color:#f0f0f0; }
+    body.dark-mode header, body.dark-mode footer { background:#1f1f1f; color:#f0f0f0; }
+    body.dark-mode nav a:hover { color:#0077cc; }
 
     /* ---------- Header ---------- */
-    header { 
-      background:#222; 
-      color:#fff; 
-      padding:15px; 
-      display:flex; 
-      justify-content:space-between; 
-      align-items:center; 
-      position:sticky; 
-      top:0; 
-      z-index:1000; 
-      box-shadow:0 2px 5px rgba(0,0,0,0.3);
-    }
-    
-    header .logo { 
-      display:flex; 
-      align-items:center; 
-      gap:15px; 
-    }
-    
-    header .logo img { 
-      width:60px; 
-      height:60px; 
-      border-radius:50%; 
-    }
+    header { background:#222; color:#fff; padding:15px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.3);}
+    header .logo { display:flex; align-items:center; gap:15px; }
+    header .logo img { width:60px; height:60px; border-radius:50%; }
 
     /* ---------- Navigation ---------- */
-    nav { 
-      display:flex; 
-      justify-content:center; 
-      gap:15px; 
-      background:#333; 
-      padding:10px 0; 
-      position:sticky; 
-      top:75px; 
-      z-index:999;
-    }
-    
-    nav a { 
-      color:#fff; 
-      padding:8px 12px; 
-      border-radius:5px; 
-      transition:0.3s; 
-    }
-    
-    nav a:hover { 
-      background:#0077cc; 
-    }
+    nav { display:flex; justify-content:center; gap:15px; background:#333; padding:10px 0; position:sticky; top:75px; z-index:999;}
+    nav a { color:#fff; padding:8px 12px; border-radius:5px; transition:0.3s; }
+    nav a:hover { background:#0077cc; }
 
-    /* ---------- Modern Section Cards ---------- */
-    section { 
-      padding:50px 20px; 
-      max-width:1000px; 
-      margin:50px auto; 
-    }
-    
-    section .card {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      padding: 30px;
-      margin-bottom: 30px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    section .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-    }
-    
-    section h2 { 
-      font-family: 'Poppins', sans-serif; 
-      font-weight:600; 
-      font-size:2rem; 
-      text-align:center; 
-      margin-bottom:40px; 
-      color:#0077cc; 
-    }
-    
-    section h3 { 
-      font-family: 'Poppins', sans-serif; 
-      font-weight:500; 
-      font-size:1.5rem; 
-      margin-bottom:15px; 
-      color:#222; 
-    }
-    
-    section p, 
-    section ul li { 
-      font-size:1rem; 
-      color:#555; 
-      line-height:1.6; 
-    }
-    
-    section ul { 
-      list-style: disc; 
-      padding-left: 20px; 
-    }
-    
-    .card-btn { 
-      display:inline-block; 
-      margin-top:15px; 
-      padding:10px 20px; 
-      background:#0077cc; 
-      color:#fff; 
-      border-radius:8px; 
-      border:none; 
-      cursor:pointer; 
-      transition:0.3s; 
-      text-decoration:none; 
-    }
-    
-    .card-btn:hover { 
-      background:#005fa3; 
-    }
-    
-    body.dark-mode section .card { 
-      background:#1f1f1f; 
-      color:#f0f0f0; 
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
-    }
-    
-    body.dark-mode .card-btn { 
-      background:#00bfff; 
-      color:#1f1f1f; 
-    }
-    
-    body.dark-mode .card-btn:hover { 
-      background:#0099cc; 
-    }
+    /* ---------- Sections ---------- */
+    section { padding:50px 20px; max-width:900px; margin:auto; }
+    h2 { font-family:'Poppins', sans-serif; font-weight:600; font-size:2rem; text-align:center; margin-bottom:25px; color:#0077cc; }
+    h3 { font-family:'Poppins', sans-serif; font-weight:500; font-size:1.5rem; margin-top:30px; color:#333; }
+    p { font-size:1rem; color:#555; margin-bottom:15px; }
+    ul { list-style-type: disc; padding-left:20px; margin-bottom:20px; }
+    ul li { font-size:1rem; margin-bottom:10px; color:#444; }
+    .awards li { display:flex; align-items:center; gap:10px; }
+    .contact p { margin:5px 0; font-size:1rem; }
 
     /* ---------- Slideshow ---------- */
-    .slideshow-container { 
-      position:relative; 
-      max-width:900px; 
-      margin:auto; 
-      overflow:hidden; 
-      border-radius:10px; 
-    }
-    
-    .slides { 
-      display:none; 
-      width:100%; 
-    }
-    
-    .slides img { 
-      width:100%; 
-      border-radius:10px; 
-    }
-    
-    .fade { 
-      animation:fade 1.5s; 
-    }
-    
-    @keyframes fade { 
-      from {opacity:0.4} 
-      to {opacity:1} 
-    }
+    .slideshow-container { position:relative; max-width:900px; margin:auto; overflow:hidden; border-radius:10px; }
+    .slides { display:none; width:100%; }
+    .slides img { width:100%; border-radius:10px; }
+    .fade { animation:fade 1.5s; }
+    @keyframes fade { from {opacity:0.4} to {opacity:1} }
 
     /* ---------- Footer ---------- */
-    footer { 
-      text-align:center; 
-      padding:15px; 
-      background:#222; 
-      color:#fff; 
-    }
+    footer { text-align:center; padding:15px; background:#222; color:#fff; }
 
     /* ---------- Welcome Popup ---------- */
-    #welcomePopup { 
-      position:fixed; 
-      top:0; 
-      left:0; 
-      width:100%; 
-      height:100%; 
-      background:rgba(0,0,0,0.7); 
-      display:flex; 
-      align-items:center; 
-      justify-content:center; 
-      z-index:9999; 
-      backdrop-filter: blur(5px);
-    }
-    
-    #welcomePopup .popup-content { 
-      background:#fff; 
-      padding:30px; 
-      border-radius:10px; 
-      text-align:center; 
-      max-width:400px; 
-      position:relative; 
-      overflow:hidden;
-    }
-    
-    #welcomePopup button { 
-      margin-top:20px; 
-      padding:10px 15px; 
-      border:none; 
-      border-radius:5px; 
-      background:#0077cc; 
-      color:#fff; 
-      cursor:pointer; 
-    }
+    #welcomePopup { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; z-index:9999; }
+    #welcomePopup .popup-content { background:#fff; padding:30px; border-radius:10px; text-align:center; max-width:400px; position:relative; }
+    #welcomePopup button { margin-top:15px; padding:8px 15px; border:none; border-radius:5px; background:#0077cc; color:#fff; cursor:pointer; }
 
-    /* ---------- Glowing Cursor Trail ---------- */
-    .trailDot {
-      position: fixed;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      pointer-events: none;
-      background: #ff3f8e;
-      box-shadow: 0 0 15px #ff3f8e, 0 0 30px #ff3f8e, 0 0 45px #ff3f8e;
-      transform: translate(-50%, -50%);
-      transition: transform 0.05s ease, background 0.3s, box-shadow 0.3s;
-      z-index: 9999;
-    }
+    /* ---------- Balloons ---------- */
+    .balloon { position:absolute; bottom:-50px; width:20px; height:30px; border-radius:50%; animation:floatUp linear forwards; }
+    @keyframes floatUp { 0% { transform:translateY(0);} 100% { transform:translateY(-110vh);} }
 
-    /* ---------- Balloon Style ---------- */
-    .balloon { 
-      position:absolute; 
-      bottom:-50px; 
-      border-radius:50%; 
-      animation:floatUp linear forwards; 
-    }
-    
-    @keyframes floatUp { 
-      0% { transform:translateY(0);} 
-      100% { transform:translateY(-110vh);} 
-    }
-
-    /* ---------- Lighting Flash Effect ---------- */
-    body.flash-effect { 
-      animation: flash 0.5s ease; 
-    }
-    
-    @keyframes flash {
-      0% { box-shadow: inset 0 0 50px rgba(255,255,255,0.5); }
-      50% { box-shadow: inset 0 0 200px rgba(255,255,255,0.7); }
-      100% { box-shadow: inset 0 0 50px rgba(255,255,255,0); }
-    }
-
-    /* ---------- Sparkle Particle ---------- */
-    .sparkle {
-      position: fixed;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 10000;
-      opacity: 0.9;
-      animation: sparkleFall linear forwards;
-    }
-    
-    @keyframes sparkleFall {
-      0% { transform: translateY(0) rotate(0deg); opacity:1; }
-      100% { transform: translateY(50vh) rotate(360deg); opacity:0; }
-    }
-
-    /* Base Glow Text */
-    .glow-text {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 2.5rem;
-      text-align: center;
-      position: relative;
-      display: inline-block;
-      animation: neonGlow 2s ease-in-out infinite alternate;
-      z-index: 1;
-    }
-
-    /* Neon Glow Animation */
-    @keyframes neonGlow {
-      0% {
-        text-shadow: 
-          0 0 5px #ff3f8e,
-          0 0 10px #ff3f8e,
-          0 0 20px #ff3f8e,
-          0 0 30px #ff66cc,
-          0 0 40px #ff66cc;
-      }
-      100% {
-        text-shadow: 
-          0 0 10px #ff3f8e,
-          0 0 20px #ff3f8e,
-          0 0 30px #ff3f8e,
-          0 0 40px #ff66cc,
-          0 0 50px #ff66cc;
-      }
-    }
-
-    /* Moving Gradient Texture */
-    .textured-text {
-      background: linear-gradient(270deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
-      background-size: 1000% 1000%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientMove 8s ease infinite;
-    }
-
-    /* Gradient Movement Animation */
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Modern Floating Buttons - Always on top */
-    #darkModeToggle,
-    #musicButton {
-        position: fixed;
-        padding: 12px 18px;
-        border: none;
-        border-radius: 10px;
-        font-weight: 500;
-        cursor: pointer;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-        transition: 0.3s, transform 0.2s;
-        z-index: 100000;
-    }
-
-    /* Dark Mode Button */
-    #darkModeToggle {
-        background: #0077cc;
-        color: #fff;
-        right: 20px;
-        bottom: 20px;
-    }
-    
-    #darkModeToggle:hover {
-        background: #005fa3;
-        transform: translateY(-3px);
-    }
-
-    /* Music Button */
-    #musicButton {
-        background: #ff3f8e;
-        color: #fff;
-        right: 20px;
-        bottom: 70px;
-    }
-    
-    #musicButton:hover {
-        background: #e62e75;
-        transform: translateY(-3px);
-    }
-
-    /* Party Download Button */
-    .party-download-btn {
-      position: fixed;
-      right: 20px;
-      bottom: 45px;
-      padding: 15px 35px;
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-      text-decoration: none;
-      text-align: center;
-      border-radius: 50px;
-      z-index: 10000;
-      background: linear-gradient(270deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
-      background-size: 1000% 1000%;
-      box-shadow: 0 0 20px #ff3f8e, 0 0 40px #ffcc00, 0 0 60px #33cc33;
-      animation: gradientMove 5s ease infinite, bounce 2s infinite, neonGlow 2s ease-in-out infinite alternate;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    /* Bounce animation */
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    /* Thank You Popup */
-    #thankYouPopup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0,0,0,0.5);
-      z-index: 10000;
-    }
-    
-    #thankYouPopup .popup-content {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-      max-width: 400px;
-      position: relative;
-    }
-
-    /* Butterfly animation */
-    .butterfly {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      opacity: 0.9;
-      animation: flutter linear forwards;
-    }
-
-    @keyframes flutter {
-      0% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 0;
-      }
-      10% { opacity: 1; }
-      50% {
-        transform: translate(calc(100vw * var(--x)), calc(-200px * var(--y))) rotate(360deg);
-      }
-      100% {
-        transform: translate(calc(100vw * var(--x)), calc(-400px * var(--y))) rotate(720deg);
-        opacity: 0;
-      }
-    }
+    /* ---------- Dark Mode Toggle Button ---------- */
+    #darkModeToggle { position:fixed; bottom:20px; right:20px; padding:10px 15px; background:#0077cc; color:#fff; border:none; border-radius:5px; cursor:pointer; z-index:1000; }
   </style>
 </head>
 
 <body>
+
   <!-- Welcome Popup -->
   <div id="welcomePopup">
     <div class="popup-content">
-      <h2>Welcome to My Portfolio!</h2>
-      <p id="quoteText"></p>
-      <div id="balloons"></div>
-      <button id="enterButton">Enter Website</button>
+      <h2>Welcome! 🎉</h2>
+      <p id="quoteText" style="font-style:italic; font-size:16px;">Loading quote...</p>
+      <button onclick="closePopup()">Enter site</button>
     </div>
+    <div id="balloons"></div>
   </div>
 
   <!-- Header -->
-  <header data-aos="fade-down">
+  <header>
     <div class="logo">
       <img src="my_logo.jpg" alt="my logo" onerror="this.src='https://via.placeholder.com/60?text=Logo'">
-      <h1 class="glow-text textured-text">Manoj Kumar YM - Portfolio</h1>
+      <h1>Manoj Kumar YM - Portfolio</h1>
     </div>
-    
-    <!-- Download Resume Button -->
-    <a href="#" id="downloadResume" class="party-download-btn">📄 Download Resume</a>
+    <div>
+      👀 Visitors: <span id="visits" style="font-weight:bold; background:#0077cc; color:#fff; padding:5px 12px; border-radius:12px;">0</span>
+    </div>
   </header>
 
   <!-- Navigation -->
-  <nav data-aos="fade-up">
-    <div id="navSparkles"></div>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#awards">Awards</a>
-    <a href="#blog">Blog</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+ <nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#awards">Awards</a>
+  <a href="blog.html" onclick="alert('Blog coming soon!'); return false;">Blog</a>
+  <a href="#contact">Contact</a>
+  <a href="resume.pdf" id="downloadResume" download style="background:#ff6600; color:#fff; padding:8px 12px; border-radius:5px;">Download Resume</a>
+</nav>
 
   <!-- Slideshow -->
-  <section class="slideshow-container" data-aos="fade-up">
+  <section class="slideshow-container">
     <div class="slides fade"><img src="office.jpg" alt="office"></div>
     <div class="slides fade"><img src="visit.jpg" alt="visit"></div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" data-aos="fade-right">
+  <!-- Modernized Portfolio Content -->
+  <section id="about">
     <h2>Professional Summary</h2>
-    <div class="card">
-      <p>Finance & Operations professional with 4.5+ years of experience at Wells Fargo EGS, specializing in risk management, compliance, financial investigations, and process optimization.</p>
-      <p>Recognized with the <strong>Wells Fargo Gold Coin Award</strong> for outstanding performance and leadership.</p>
-      <p>Currently learning <strong>Data Science & Machine Learning</strong>: Python, SQL, Power BI, Tableau.</p>
-    </div>
+    <p>Finance & Operations professional with 4.5+ years of experience at Wells Fargo EGS, specializing in risk management, compliance, financial investigations, and process optimization.</p>
+    <p>Recognized with the <strong>Wells Fargo Gold Coin Award</strong> for outstanding performance and leadership.</p>
+    <p>Currently learning <strong>Data Science & Machine Learning</strong>: Python, SQL, Power BI, Tableau.</p>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" data-aos="fade-left">
+  <section id="skills">
     <h2>Skills</h2>
-    <div class="card">
-      <ul>
-        <li>Finance & Operations</li>
-        <li>Risk Management & Compliance</li>
-        <li>Process Improvement</li>
-        <li>Financial Investigations</li>
-        <li>Data Science & Machine Learning</li>
-        <li>SQL, Python, NumPy, MongoDB</li>
-        <li>Power BI, Tableau, DAX, VBA Macros</li>
-      </ul>
-    </div>
+    <ul>
+      <li>Finance & Operations</li>
+      <li>Risk Management & Compliance</li>
+      <li>Process Improvement</li>
+      <li>Financial Investigations</li>
+      <li>Data Science & Machine Learning</li>
+      <li>SQL, Python, NumPy, MongoDB</li>
+      <li>Power BI, Tableau, DAX, VBA Macros</li>
+    </ul>
   </section>
 
-  <!-- Experience Section -->
-  <section id="experience" data-aos="fade-right">
+  <section id="experience">
     <h2>Professional Experience</h2>
-    <div class="card">
-      <h3>Wells Fargo EGS | Finance & Operations Professional</h3>
-      <ul>
-        <li>4.5+ years of experience in Finance & Operations.</li>
-        <li>Specialized in risk management, compliance, and process improvement.</li>
-        <li>Consolidated and submitted accurate daily reports.</li>
-        <li>Conducted induction training and created effective training plans.</li>
-        <li>Provided process support and eliminated non-value-added tasks (NVA).</li>
-      </ul>
-    </div>
+    <h3>Wells Fargo EGS | Finance & Operations Professional</h3>
+    <ul>
+      <li>4.5+ years of experience in Finance & Operations.</li>
+      <li>Specialized in risk management, compliance, and process improvement.</li>
+      <li>Consolidated and submitted accurate daily reports.</li>
+      <li>Conducted induction training and created effective training plans.</li>
+      <li>Provided process support and eliminated non-value-added tasks (NVA).</li>
+    </ul>
   </section>
 
-  <!-- Awards Section -->
-  <section id="awards" data-aos="fade-left">
+  <section id="awards">
     <h2>🏆 Achievements & Awards</h2>
-    <div class="card">
-      <ul>
-        <li>🏅 Wells Fargo Gold Coin Award (2024)</li>
-        <li>🎖️ Manager's Spotlight Award</li>
-        <li>🏆 First Feather Cap Award (twice)</li>
-        <li>⭐ Learning Champion</li>
-        <li>✅ Maintained 0 critical errors for 3.10 years</li>
-        <li>💡 Contributed to process automation</li>
-      </ul>
-    </div>
+    <ul class="awards">
+      <li>🏅 Wells Fargo Gold Coin Award (2024)</li>
+      <li>🎖️ Manager’s Spotlight Award</li>
+      <li>🏆 First Feather Cap Award (twice)</li>
+      <li>⭐ Learning Champion</li>
+      <li>✅ Maintained 0 critical errors for 3.10 years</li>
+      <li>💡 Contributed to process automation</li>
+    </ul>
   </section>
 
-  <!-- Blog Section -->
-  <section id="blog" data-aos="fade-up">
-    <h2>Blog</h2>
-    <div class="card">
-      <h3>How I Built My Portfolio</h3>
-      <p>Learn about the technologies, design choices, and interactive effects in my portfolio.</p>
-      <button class="showBlogDetailsBtn card-btn">Read More</button>
-      <div class="card-details" style="display:none; margin-top:15px;">
-        <p>This blog explains the process of creating this portfolio with HTML, CSS, JavaScript, AOS animations, dark mode, music, balloons, and glowing cursor effects.</p>
-        <p>It also covers hosting on GitHub Pages and responsive design for mobile devices.</p>
-      </div>
-    </div>
-    <h3>Coming soon...</h3>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" data-aos="fade-up">
-    <h2>Projects</h2>
-    <div class="card">
-      <p>Click the button below to see details about how I built this portfolio website:</p>
-      <button id="showProjectDetails" class="card-btn">Show Project Details</button>
-
-      <div id="projectDetails" style="display:none; margin-top:20px;">
-        <ul>
-          <li><strong>HTML & CSS:</strong> Layout, responsive design, dark/light mode, animations.</li>
-          <li><strong>JavaScript:</strong> Slideshow, dark mode toggle, music autoplay & play/pause, glowing cursor trail, balloons & party effects.</li>
-          <li><strong>AOS Library:</strong> Smooth scroll animations for sections and elements.</li>
-          <li><strong>Responsive Design:</strong> Media queries for mobile-friendly layout.</li>
-          <li><strong>Portfolio Features:</strong>
-            <ul>
-              <li>Welcome popup with quotes & balloon animation</li>
-              <li>Interactive slideshow</li>
-              <li>Glowing cursor trail & confetti effects</li>
-              <li>Dark mode toggle with lighting flash</li>
-              <li>Music playlist with party effect at the end</li>
-            </ul>
-          </li>
-          <li><strong>Hosting:</strong> GitHub Pages for live deployment.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact" data-aos="fade-up">
+  <section id="contact" class="contact">
     <h2>Contact Me</h2>
-    <div class="card">
-      <p>Email: <a href="mailto:ymmanoj.kumar199@gmail.com">ymmanoj.kumar199@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/manoj-ymk-4188b1296" target="_blank">linkedin.com/in/manoj-ymk-4188b1296</a></p>
-    </div>
+    <p>Email: <a href="mailto:ymmanoj.kumar199@gmail.com">ymmanoj.kumar199@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/manoj-ymk-4188b1296" target="_blank">linkedin.com/in/manoj-ymk-4188b1296</a></p>
   </section>
 
   <!-- Footer -->
-  <footer data-aos="fade-up">
+  <footer>
     &copy; 2025 Manoj Kumar YMK | All Rights Reserved
   </footer>
+<!-- Music Toggle Button -->
+<button id="musicToggle" style="position:fixed; bottom:70px; right:20px; padding:10px 15px; background:#ff6600; color:#fff; border:none; border-radius:5px; cursor:pointer; z-index:1000;">
+  Play Music
+</button>
+
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+  <source src="bg.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 
   <!-- Dark Mode Toggle -->
   <button id="darkModeToggle">Toggle Dark Mode</button>
 
-  <!-- Music Button -->
-  <button id="musicButton">Pause Music</button>
-
-  <!-- Thank You Popup -->
-  <div id="thankYouPopup">
-    <div class="popup-content">
-      <h2>Thank You!</h2>
-      <p>We appreciate your visit!</p>
-      <div id="thankBalloons"></div>
-      <button id="closeThankYou">Close</button>
-    </div>
-  </div>
-
   <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    // Initialize AOS
-    AOS.init({ duration: 1000 });
+    /* ---------------- Visitor Counter ---------------- */
+    function animateCount(element, target) {
+      let current = 0;
+      const increment = Math.ceil(target / 100);
+      const interval = setInterval(() => {
+        current += increment;
+        if(current >= target) { current = target; clearInterval(interval);}
+        element.innerText = current;
+      }, 20);
+    }
+    fetch('https://api.countapi.xyz/hit/ymk-portfolio/visits')
+      .then(res => res.json())
+      .then(data => animateCount(document.getElementById('visits'), data.value));
 
-    // Slideshow
+    /* ---------------- Slideshow ---------------- */
     let slideIndex = 0;
     function showSlides() {
       const slides = document.getElementsByClassName("slides");
-      for(let i = 0; i < slides.length; i++){ 
-        slides[i].style.display = "none"; 
-      }
+      for(let i=0;i<slides.length;i++){ slides[i].style.display="none"; }
       slideIndex++;
-      if(slideIndex > slides.length){ 
-        slideIndex = 1; 
-      }
-      slides[slideIndex-1].style.display = "block";
+      if(slideIndex>slides.length){ slideIndex=1; }
+      slides[slideIndex-1].style.display="block";
       setTimeout(showSlides, 4000);
     }
     showSlides();
 
-    // Dark mode auto-detect
-    if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
-      document.body.classList.add('dark-mode');
-    }
-
-    // Dark Mode Toggle with Lighting Effect
-    document.getElementById('darkModeToggle').addEventListener('click', () => { 
-      document.body.classList.toggle('dark-mode'); 
-      document.body.classList.add('flash-effect'); 
-      setTimeout(() => { 
-        document.body.classList.remove('flash-effect'); 
-      }, 500); 
-    });
-
-    // Welcome quote
+    /* ---------------- Welcome Popup & Quote ---------------- */
     const quotes = [
       "Stay positive, work hard, make it happen!",
       "Believe in yourself and all that you are.",
-      "Every day is a new opportunity to shine!",
+      "Every day is a new opportunity to shine.",
       "Keep going, your breakthrough is coming!",
       "Happiness is homemade – smile today!",
-      "Small steps each day lead to big results!",
-      "Your attitude determines your direction!",
-      "Learning never stops; grow a little every day!"
+      "Small steps each day lead to big results.",
+      "Your attitude determines your direction.",
+      "Learning never stops; grow a little every day."
     ];
-    
-    const quoteText = document.getElementById("quoteText");
-    quoteText.innerText = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("quoteText").textContent = quotes[Math.floor(Math.random()*quotes.length)];
+    function closePopup(){ document.getElementById("welcomePopup").style.display="none"; }
 
-    // Continuous balloons
+    /* ---------------- Balloon Animation ---------------- */
     function createBalloon() {
       const balloon = document.createElement('div');
       balloon.classList.add('balloon');
       const colors = ['#ff4d4d','#ffcc00','#33cc33','#3399ff','#ff66cc'];
-      balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      balloon.style.left = Math.random() * 80 + '%';
-      balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
-      balloon.style.width = 15 + Math.random() * 15 + 'px';
-      balloon.style.height = 20 + Math.random() * 20 + 'px';
-      balloon.style.opacity = Math.random() * 0.8 + 0.2;
+      balloon.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+      balloon.style.left = Math.random()*90+'vw';
+      balloon.style.animationDuration = (5+Math.random()*5)+'s';
       document.getElementById('balloons').appendChild(balloon);
-      setTimeout(() => balloon.remove(), 10000);
+      setTimeout(()=>balloon.remove(),10000);
     }
-    
-    let balloonInterval = setInterval(() => { 
-      if(document.getElementById('welcomePopup').style.display !== 'none') createBalloon(); 
-    }, 200);
+    function launchBalloons(){ for(let i=0;i<30;i++){ setTimeout(createBalloon,i*200); } }
+    launchBalloons();
 
-    document.getElementById("enterButton").addEventListener("click", () => { 
-      document.getElementById("welcomePopup").style.display = "none"; 
-      clearInterval(balloonInterval); 
+    /* ---------------- Dark Mode ---------------- */
+    document.getElementById('darkModeToggle').addEventListener('click',()=>{
+      document.body.classList.toggle('dark-mode');
     });
-
-    // Music autoplay + play/pause
-    const musicList = ['music1.mp3','music2.mp3','music3.mp3','music4.mp3','music5.mp3'];
-    let audio = new Audio(musicList[Math.floor(Math.random() * musicList.length)]);
-    audio.loop = false; 
-    audio.play();
-    
-    const musicButton = document.getElementById('musicButton');
-    musicButton.addEventListener('click', () => { 
-      if(audio.paused){ 
-        audio.play(); 
-        musicButton.innerText = 'Pause Music'; 
-      } else { 
-        audio.pause(); 
-        musicButton.innerText = 'Play Music'; 
-      } 
-    });
-    
-    audio.addEventListener('ended', () => { 
-      let idx = Math.floor(Math.random() * musicList.length); 
-      audio.src = musicList[idx]; 
-      audio.play(); 
-    });
-
-    // Blog toggle
-    document.querySelectorAll('.showBlogDetailsBtn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const cardDetails = btn.nextElementSibling;
-        cardDetails.style.display = cardDetails.style.display === 'none' ? 'block' : 'none';
-      });
-    });
-
-    // Project toggle
-    document.getElementById('showProjectDetails').addEventListener('click', () => {
-      const projectDetails = document.getElementById('projectDetails');
-      projectDetails.style.display = projectDetails.style.display === 'none' ? 'block' : 'none';
-    });
-
-    // Cursor trail effect
-    window.addEventListener('DOMContentLoaded', () => {
-      // Trail settings
-      const trailColors = ['#FF3F8E','#04C2C9','#2E55C1','#FFAA00','#8DFF33','#FF3F8E'];
-      const trailCount = 8;
-      const trailDots = [];
-      const positions = Array(trailCount).fill({x:0, y:0});
-      let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2;
-
-      // Create trail dots
-      for (let i = 0; i < trailCount; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('trailDot');
-        document.body.appendChild(dot);
-        trailDots.push(dot);
-      }
-
-      // Track mouse
-      document.addEventListener('mousemove', e => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      });
-
-      // Animate trail
-      function animateTrail() {
-        positions.unshift({x: mouseX, y: mouseY});
-        positions.pop();
-
-        trailDots.forEach((dot, i) => {
-          const pos = positions[i];
-          dot.style.left = pos.x + 'px';
-          dot.style.top = pos.y + 'px';
-          const color = trailColors[(i + Math.floor(Date.now()/200)) % trailColors.length];
-          dot.style.background = color;
-          dot.style.boxShadow = `0 0 15px ${color}, 0 0 30px ${color}, 0 0 45px ${color}`;
-        });
-
-        requestAnimationFrame(animateTrail);
-      }
-
-      animateTrail();
-    });
-
-    // Balloon creation function
-    function createThankBalloon() {
-      const balloon = document.createElement('div');
-      balloon.classList.add('balloon');
-      const colors = ['#ff4d4d','#ffcc00','#33cc33','#3399ff','#ff66cc','#ff3f8e'];
-      balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      balloon.style.left = Math.random() * 80 + '%';
-      balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
-      balloon.style.width = 15 + Math.random() * 15 + 'px';
-      balloon.style.height = 20 + Math.random() * 20 + 'px';
-      balloon.style.opacity = Math.random() * 0.8 + 0.2;
-      document.getElementById('thankBalloons').appendChild(balloon);
-      setTimeout(() => balloon.remove(), 10000);
-    }
-
-    // Download Resume functionality
-    document.getElementById("downloadResume").addEventListener("click", (e) => {
-      e.preventDefault();
-      
-      // Show thank you popup
-      document.getElementById("thankYouPopup").style.display = "flex";
-      
-      // Create balloons
-      let balloonInterval = setInterval(() => {
-        if (document.getElementById("thankYouPopup").style.display !== "none") {
-          createThankBalloon();
-        }
-      }, 300);
-      
-      // Close popup handler
-      document.getElementById("closeThankYou").addEventListener("click", () => {
-        document.getElementById("thankYouPopup").style.display = "none";
-        clearInterval(balloonInterval);
-      });
-      
-      // Trigger download after a short delay
-      setTimeout(() => {
-        const link = document.createElement('a');
-        link.href = 'resume.pdf';
-        link.download = 'resume.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }, 1000);
-    });
-
-    // Create sparkles continuously
-    function createSparkle() {
-      const sparkle = document.createElement('div');
-      sparkle.classList.add('sparkle');
-      sparkle.style.background = ['#ff3f8e','#04C2C9','#2E55C1','#FFAA00','#8DFF33'][Math.floor(Math.random()*5)];
-      sparkle.style.left = Math.random() * window.innerWidth + 'px';
-      sparkle.style.top = Math.random() * window.innerHeight + 'px';
-      document.body.appendChild(sparkle);
-      setTimeout(() => sparkle.remove(), 2000);
-    }
-
-    setInterval(createSparkle, 200);
-
-    // Random flash effect
-    function randomFlash() {
-      document.body.classList.add('flash-effect');
-      setTimeout(() => document.body.classList.remove('flash-effect'), 300);
-    }
-
-    setInterval(() => {
-      if(Math.random() < 0.5) randomFlash();
-    }, 3000 + Math.random()*5000);
-
-    // Butterfly animation
-    function createButterfly() {
-      const butterfly = document.createElement('div');
-      butterfly.classList.add('butterfly');
-
-      // Random horizontal position
-      butterfly.style.left = Math.random() * 90 + 'vw';
-      butterfly.style.top = '60px';
-
-      // Random speed & path multiplier
-      butterfly.style.setProperty('--x', Math.random());
-      butterfly.style.setProperty('--y', Math.random());
-
-      // Random size
-      const size = 20 + Math.random() * 20;
-      butterfly.style.width = size + 'px';
-      butterfly.style.height = size + 'px';
-
-      document.body.appendChild(butterfly);
-
-      // Remove after animation
-      setTimeout(() => butterfly.remove(), 8000);
-    }
-
-    // Generate butterflies every 500ms
-    setInterval(createButterfly, 500);
   </script>
+<script>
+const music = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicToggle');
+
+
+// Play/pause button
+musicBtn.addEventListener('click', () => {
+  if (music.paused) {
+    music.play();
+    musicBtn.textContent = "Pause Music";
+  } else {
+    music.pause();
+    musicBtn.textContent = "Play Music";
+  }
+});
+
+// Attempt autoplay on page load
+window.addEventListener('load', () => {
+  music.muted = false;  // unmute after load
+  music.play().catch(() => {
+    // autoplay blocked, user must click to start
+    musicBtn.textContent = "Play Music";
+  });
+});
+
+</script>
+
 </body>
 </html>
