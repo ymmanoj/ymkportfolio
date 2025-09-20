@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>True Journey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    
+    /* ===== Styles same as before ===== */
+    
+    .card h2 {
+      font-size: 48px;
+      font-weight: 900;
+      background: linear-gradient(270deg, #667eea, #764ba2, #f39c12, #e74c3c);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(102,126,234,0.5), 0 0 25px rgba(118,75,162,0.4);
+      animation: headingGradient 5s ease infinite, headingBounce 2s infinite;
+    }
+    @keyframes headingBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes headingGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .magic-text {
+      font-size: 18px;
+      font-weight: 600;
+      background: linear-gradient(270deg, #f39c12, #e74c3c, #667eea, #764ba2);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: magicTextGradient 5s ease infinite, magicTextFloat 2s ease-in-out infinite;
+      display: inline-block;
+    }
+    @keyframes magicTextFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes magicTextGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .glow-name {
+      font-size: 36px;
+      background: linear-gradient(270deg, #667eea, #764ba2, #f39c12, #e74c3c);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(102,126,234,0.7), 0 0 20px rgba(118,75,162,0.6);
+      animation: gradientMove 5s ease infinite, glowBounce 1.5s infinite;
+      display: inline-block;
+    }
+    @keyframes glowBounce {
+      0%, 100% { text-shadow: 0 0 10px rgba(102,126,234,0.7), 0 0 20px rgba(118,75,162,0.6); transform: translateY(0); }
+      50% { text-shadow: 0 0 25px rgba(102,126,234,1), 0 0 40px rgba(118,75,162,0.8); transform: translateY(-6px); }
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .site-frame {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      filter: blur(12px);
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .blur-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      z-index: 1;
+    }
+
+    .card {
+      display: none; /* hide form initially */
+      background: #111;
+      color: #fff;
+      padding: 40px 35px;
+      border-radius: 20px;
+      width: 420px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .card input[type="text"] {
+      width: 90%;
+      padding: 12px 15px;
+      margin: 12px 0;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.4);
+      background: #000;
+      color: #fff;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .card input[type="text"]::placeholder {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .card input[type="text"]:focus {
+      border: 1px solid #667eea;
+      box-shadow: 0 0 10px #667eea;
+      outline: none;
+    }
+
+    /* Gender radio buttons */
+    .gender-group {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 20px 0;
+      width: 100%;
+      flex-wrap: nowrap;
+      gap: 0;
+    }
+
+    .gender-option {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+      flex: 1 1 100px;
+      min-width: 100px;
+      padding-left: 35px;
+    }
+
+    .gender-option input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .gender-option span {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: #000;
+      transition: all 0.3s ease;
+    }
+
+    .gender-option input:checked ~ span {
+      background: linear-gradient(135deg, #667eea, #764ba2, #f39c12);
+      border: none;
+      box-shadow: 0 0 12px rgba(102,126,234,1), 0 0 6px rgba(243,156,18,0.8);
+    }
+
+    .gender-option:hover span {
+      box-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 14px 35px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      animation: pulseBtn 1.5s infinite;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 25px rgba(102,126,234,0.5);
+      opacity: 0.9;
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .popup-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      display: none;
+      align-items: center; justify-content: center;
+      z-index: 1000;
+    }
+
+    .popup-box {
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(12px);
+      padding: 60px;
+      border-radius: 25px;
+      width: 600px;
+      min-height: 350px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: scaleUp 0.5s ease-out;
+      color: #fff;
+    }
+
+    @keyframes scaleUp {
+      0% { transform: scale(0.6); opacity: 0; }
+      70% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    #quoteBox {
+      display: inline-block;
+      font-size: 20px;
+      line-height: 1.5;
+      color: #fff;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .quote-word {
+      display: inline;
+      background: linear-gradient(270deg, #667eea, #764ba2, #f39c12, #e74c3c);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(102,126,234,0.5), 0 0 25px rgba(118,75,162,0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: wordFade 0.5s forwards;
+    }
+
+    @keyframes wordFade {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .bubble-container, #balloonContainer {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .bubble {
+      position: absolute; bottom: -50px;
+      width: 20px; height: 20px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0) scale(1); opacity: 0.6; }
+      to { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+
+    .balloon {
+      position: absolute; bottom: -50px;
+      border-radius: 50%;
+      width: 30px; height: 40px;
+      animation: floatBalloon linear forwards;
+    }
+
+    @keyframes floatBalloon {
+      from { transform: translateY(0); }
+      to { transform: translateY(-110vh); }
+    }
+
+    .sparkle {
+      position: absolute; width: 6px; height: 6px;
+      background: white; border-radius: 50%;
+      opacity: 0.8; animation: sparkleFly 1.2s linear forwards;
+    }
+
+    @keyframes sparkleFly {
+      from { transform: translate(0,0) scale(1); opacity: 1; }
+      to { transform: translate(calc(-30px + 60px * var(--randX)), -80px) scale(0.2); opacity: 0; }
+    }
+#countdownOverlay {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px 20px;
+  border-radius: 12px;
+  z-index: 25;
+  pointer-events: none;
+  font-family: 'Poppins', sans-serif;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 15px rgba(102,126,234,0.5), 0 0 25px rgba(118,75,162,0.5);
+  animation: countdownGlow 1.5s infinite alternate;
+}
+
+@keyframes countdownGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(102,126,234,0.7), 0 0 20px rgba(118,75,162,0.6);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(102,126,234,1), 0 0 40px rgba(118,75,162,0.8);
+    transform: scale(1.05);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(102,126,234,0.7), 0 0 20px rgba(118,75,162,0.6);
+    transform: scale(1);
+  }
+}
+.fade {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.fade.show {
+  opacity: 1;
+}
+/* Beam flow effect on greeting text */
+.glow-beam {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.glow-beam::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.0) 100%);
+  transform: skewX(-25deg);
+  animation: beamFlow 1.5s linear infinite;
+}
+
+@keyframes beamFlow {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+#introVideo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  transform: translate(-50%, -50%);
+  object-fit: cover;       /* fills width/height without stretching on desktop */
+  object-position: center; /* keeps video centered */
+  z-index: 20;
+  background: black;       /* letterboxing if needed */
+}
+
+/* On mobile, prevent cropping */
+@media (max-width: 768px) {
+  #introVideo {
+    object-fit: contain; /* preserves full video, no cropping */
+  }
+}
+
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" src="bg.mp3" loop></audio>
+  <iframe src="index.html" class="site-frame"></iframe>
+  <div class="blur-overlay"></div>
+
+  <div class="bubble-container" id="bubbleContainer"></div>
+  <div id="balloonContainer"></div>
+
+  <div id="countdownOverlay">You are entering site in 5</div>
+  
+
+<!-- Add intro video here -->
+  <video id="introVideo" autoplay muted playsinline class="fade show">
+  <source src="intro1.mp4" type="video/mp4">
+</video>
+
+
+  <div class="card" id="formCard">
+    <h2>👋 Welcome!</h2>
+    <p class="magic-text">Enter your details, see magic!!</p>
+    <input type="text" id="userName" placeholder="Enter your name">
+
+    <div class="gender-group">
+      <label class="gender-option">
+        <input type="radio" name="gender" value="Male">
+        <span></span> Male
+      </label>
+      <label class="gender-option">
+        <input type="radio" name="gender" value="Female">
+        <span></span> Female
+      </label>
+      <label class="gender-option">
+        <input type="radio" name="gender" value="Other">
+        <span></span> Other
+      </label>
+    </div>
+
+    <button onclick="submitForm()">Submit</button>
+  </div>
+
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <h2 id="greeting"></h2>
+      <p id="quoteBox"></p>
+      <button onclick="enterSite()">Enter Site 🚀</button>
+    </div>
+  </div>
+
+  <script>
+    let balloonInterval;
+    const quotes = [
+      "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "Dream big, work hard, stay focused, and surround yourself with good people.",
+      "Believe you can and you're halfway there.",
+      "Every accomplishment starts with the decision to try.",
+      "Do what you can, with what you have, where you are."
+    ];
+
+    const bgMusic = document.getElementById("bgMusic");
+    let bgStarted = false;
+
+    // Start background music on user interaction
+    function startBgMusic() {
+      if (!bgStarted) {
+        bgMusic.play().catch(() => console.log("User interaction required to play audio"));
+        bgStarted = true;
+      }
+    }
+
+    function addSparkles() {
+      const greeting = document.getElementById("greeting");
+      const rect = greeting.getBoundingClientRect();
+      for (let i = 0; i < 12; i++) {
+        const sparkle = document.createElement("div");
+        sparkle.classList.add("sparkle");
+        sparkle.style.left = rect.width / 2 + "px";
+        sparkle.style.top = rect.height / 2 + "px";
+        sparkle.style.setProperty("--randX", Math.random());
+        greeting.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 1200);
+      }
+    }
+
+    function typeQuote(text) {
+      const box = document.getElementById("quoteBox");
+      box.innerHTML = "";
+      text.split(" ").forEach((word, i) => {
+        const span = document.createElement("span");
+        span.textContent = word + (i < text.split(" ").length - 1 ? " " : "");
+        span.classList.add("quote-word");
+        span.style.animationDelay = `${i * 0.2}s`;
+        box.appendChild(span);
+      });
+    }
+
+    function submitForm() {
+      const name = document.getElementById("userName").value.trim();
+      const gender = document.querySelector('input[name="gender"]:checked');
+      if (!name || !gender) { alert("Please fill in all fields!"); return; }
+
+      const genderValue = gender.value;
+      localStorage.setItem("username", name);
+      localStorage.setItem("gender", genderValue);
+
+      // Stop background music
+      if (bgMusic) {
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+        // Play gender-based track
+        let audioFile = genderValue.toLowerCase() === "male" ? "cut2.mp3"
+                     : genderValue.toLowerCase() === "female" ? "cut1.mp3"
+                     : "cut3.mp3";
+        bgMusic.src = audioFile;
+        bgMusic.loop = false;
+        bgMusic.play();
+      }
+
+      document.getElementById("formCard").style.display = "none";
+      document.getElementById("popup").style.display = "flex";
+
+      document.getElementById("greeting").innerHTML = `<span class="glow-beam glow-name">Hi</span> <span class="glow-beam glow-name">${name}</span> 👋`;
+
+      setTimeout(addSparkles, 300); // small delay so beam is visible first
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      typeQuote(randomQuote);
+
+      startBalloons();
+    }
+
+    function startBalloons() {
+      const container = document.getElementById("balloonContainer");
+      balloonInterval = setInterval(() => {
+        const balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+        balloon.style.left = Math.random() * 100 + "vw";
+        balloon.style.backgroundColor = `hsl(${Math.random()*360},70%,60%)`;
+        balloon.style.animationDuration = 4 + Math.random() * 3 + "s";
+        container.appendChild(balloon);
+        setTimeout(() => balloon.remove(), 7000);
+      }, 400);
+    }
+
+    function startBubbles() {
+      const container = document.getElementById("bubbleContainer");
+      setInterval(() => {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+        bubble.style.left = Math.random() * 100 + "vw";
+        const size = 10 + Math.random() * 20;
+        bubble.style.width = bubble.style.height = size + "px";
+        bubble.style.animationDuration = 4 + Math.random() * 4 + "s";
+        container.appendChild(bubble);
+        setTimeout(() => bubble.remove(), 8000);
+      }, 400);
+    }
+
+    startBubbles();
+window.addEventListener("load", () => {
+  bgMusic.play().catch(() => console.log("Autoplay blocked. User interaction required."));
+});
+
+// Add this function
+function enterSite() {
+  // Navigate to your main site
+  window.location.href = "index.html";
+}
+const introVideo = document.getElementById("introVideo");
+const formCard = document.getElementById("formCard");
+const blurOverlay = document.querySelector(".blur-overlay");
+
+// Show form after video ends
+introVideo.addEventListener("ended", showFormCard);
+
+function showFormCard() {
+  // Fade out the video
+  introVideo.style.transition = "opacity 1s ease";
+  introVideo.style.opacity = 0;
+
+  // After fade out, hide video and fade in form
+  setTimeout(() => {
+    introVideo.style.display = "none";
+
+    // Show the form with fade-in
+    formCard.style.display = "flex";
+    formCard.style.opacity = 0;
+    formCard.style.transition = "opacity 1s ease";
+
+    setTimeout(() => {
+      formCard.style.opacity = 1; // trigger fade-in
+    }, 50); // small delay for browser to register transition
+
+    // Start bubbles and background music
+    startBubbles();
+    startBgMusic();
+  }, 1000); // matches transition duration
+}
+const countdownOverlay = document.getElementById("countdownOverlay");
+let countdown = 9; // seconds
+
+const countdownInterval = setInterval(() => {
+  countdownOverlay.textContent = `You are entering site in ${countdown}`;
+  countdown--;
+
+  if (countdown < 0) {
+    clearInterval(countdownInterval);
+    countdownOverlay.style.display = "none"; // hide overlay
+    introVideo.play(); // start video after countdown
+  }
+}, 1000);
+
+  </script>
+</body>
+</html>

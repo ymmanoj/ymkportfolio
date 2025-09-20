@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic Meta Tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manoj Kumar YM - Portfolio</title>
   <meta name="description" content="Portfolio of Manoj Kumar YMK - Developer and Designer. Explore projects, skills, and contact information.">
   <meta name="keywords" content="Manoj Kumar YMK, Portfolio, Developer, Designer, Projects, Skills">
   <meta name="author" content="Manoj Kumar YMK">
-
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Manoj Kumar YMK - Portfolio">
@@ -25,257 +21,154 @@
   <meta name="twitter:description" content="Portfolio of Manoj Kumar YMK - Developer and Designer. Explore projects, skills, and contact information.">
   <meta name="twitter:image" content="https://ymmanoj.github.io/ymkportfolio/preview-image.jpg">
 
-  <!-- Robots -->
-  <meta name="robots" content="index, follow">
-
   <!-- Canonical URL -->
   <link rel="canonical" href="https://ymmanoj.github.io/ymkportfolio/">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-
   <!-- AOS library -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-</head>
+  
+  <style>
+ .name-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* keeps date neatly under your name */
+}
 
-  <title>Manoj Kumar YMK - Portfolio</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
-<style>
-/* Base Glow Text */
-.glow-text {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 2.5rem;
+#date-time {
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffcc00;
+  margin-top: 5px;
   text-align: center;
+}
+
+#liveDateTime {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 8px;
+  text-align: center;
+  color: #ffcc00;
+}
+    /* ---------- General Reset ---------- */
+    body, html { 
+      margin:0; 
+      padding:0; 
+      font-family: 'Roboto', sans-serif; 
+      scroll-behavior: smooth; 
+      background: #f9f9f9; 
+      color:#222222; 
+      line-height:1.7; 
+      overflow-x: hidden; 
+    }
+    
+    a { 
+      text-decoration:none; 
+      color:#0077cc; 
+      font-weight:500; 
+    }
+    
+    a:hover { 
+      text-decoration: underline; 
+    }
+
+    /* ---------- Dark Mode ---------- */
+    body.dark-mode { 
+      background:#121212; 
+      color:#f0f0f0; 
+    }
+    
+    body.dark-mode header, 
+    body.dark-mode footer { 
+      background:#1f1f1f; 
+      color:#f0f0f0; 
+    }
+    
+    body.dark-mode nav a:hover { 
+      color:#0077cc; 
+    }
+
+    /* ---------- Header ---------- */
+    header { 
+      background:#222; 
+      color:#fff; 
+      padding:15px; 
+      display:flex; 
+      justify-content:space-between; 
+      align-items:center; 
+      position:sticky; 
+      top:0; 
+      z-index:1000; 
+      box-shadow:0 2px 5px rgba(0,0,0,0.3);
+    }
+    
+    header .logo { 
+      display:flex; 
+      align-items:center; 
+      gap:15px; 
+    }
+    
+    header .logo img { 
+      width:60px; 
+      height:60px; 
+      border-radius:50%; 
+    }
+
+ /* Nav buttons default state */
+nav a {
   position: relative;
-  display: inline-block;
-  animation: neonGlow 2s ease-in-out infinite alternate;
-  z-index: 1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #ffffff;        /* Normal text color */
+  background-color: #0077cc; /* Normal button background */
 }
 
-/* Neon Glow Animation */
-@keyframes neonGlow {
-  0% {
-    text-shadow: 
-      0 0 5px #ff3f8e,
-      0 0 10px #ff3f8e,
-      0 0 20px #ff3f8e,
-      0 0 30px #ff66cc,
-      0 0 40px #ff66cc;
-  }
-  100% {
-    text-shadow: 
-      0 0 10px #ff3f8e,
-      0 0 20px #ff3f8e,
-      0 0 30px #ff3f8e,
-      0 0 40px #ff66cc,
-      0 0 50px #ff66cc;
-  }
+/* Hover state */
+nav a:hover {
+  color: #ffffff;        /* Hover text color */
+  background-color: #ff3f8e; /* Hover background */
+  box-shadow: 0 0 10px #ff3f8e, 0 0 20px #ff66cc; /* Glow effect */
+  transform: translateY(-2px);
 }
 
-/* Moving Gradient Texture */
-.textured-text {
-  background: linear-gradient(270deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
-  background-size: 1000% 1000%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientMove 8s ease infinite;
+/* Active state (current section) */
+nav a.active {
+  color: #ffffff; 
+  background-color: #33cc33; /* Highlight active button */
+  box-shadow: 0 0 10px #33cc33, 0 0 20px #66ff66;
 }
 
-/* Gradient Movement Animation */
+/* Optional: Animated gradient for hover/active */
+nav a.gradient-hover:hover,
+nav a.gradient-hover.active {
+  background: linear-gradient(90deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
+  background-size: 300% 100%;
+  animation: gradientMove 3s ease infinite;
+}
+
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-  /* Modern Floating Buttons - Always on top */
-  /* Navigation Buttons - Neon Glass Style */
-nav a {
-  display: inline-block;
-  padding: 12px 22px;
-  margin: 0 8px;
-  border-radius: 15px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  color: #fff;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.05); /* subtle glass base */
-  backdrop-filter: blur(8px); /* glass effect */
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 20px rgba(255,255,255,0.1);
-  transition: all 0.4s ease;
-  
-  /* Floating Animation */
-  animation: floatNav 4s ease-in-out infinite;
-  overflow: hidden;
-}
 
-/* Floating Keyframes */
-@keyframes floatNav {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* Hover Effects */
-nav a:hover {
-  color: #fff;
-  transform: translateY(-8px) scale(1.1);
-  box-shadow: 0 0 15px rgba(255,63,142,0.6), 0 0 30px rgba(255,255,255,0.3);
-  background: linear-gradient(135deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
-  background-size: 400% 400%;
-  animation: gradientShift 4s ease infinite, floatNav 4s ease-in-out infinite;
-}
-
-/* Glow Effect on Hover */
-nav a::after {
-  content: '';
-  position: absolute;
-  top: -5px; left: -5px; width: calc(100% + 10px); height: calc(100% + 10px);
-  border-radius: 15px;
-  box-shadow: 0 0 0 rgba(255,255,255,0);
-  transition: box-shadow 0.3s ease;
-}
-
-nav a:hover::after {
-  box-shadow: 0 0 20px rgba(255,255,255,0.3), 0 0 40px rgba(255,63,142,0.6);
-}
-
-/* Gradient Animation Keyframes */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Active / Selected Page Styling */
-nav a.active {
-  background: linear-gradient(135deg, #ff3f8e, #ffcc00, #33cc33);
-  color: #fff;
-  box-shadow: 0 0 15px rgba(255,63,142,0.7);
-  transform: translateY(-2px);
-}
-
-#darkModeToggle,
-#musicButton {
-    position: fixed;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 10px;
-    font-weight: 500;
-    cursor: pointer;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-    transition: 0.3s, transform 0.2s;
-    z-index: 100000; /* very high to stay above everything */
-}
-
-/* Dark Mode Button */
-#darkModeToggle {
-    background: #0077cc;
-    color: #fff;
-    right: 20px;
-    bottom: 20px;
-}
-#darkModeToggle:hover {
-    background: #005fa3;
-    transform: translateY(-3px);
-}
-
-/* Music Button */
-#musicButton {
-    background: #ff3f8e;
-    color: #fff;
-    right: 20px;
-    bottom: 70px; /* slightly above dark mode button */
-}
-#musicButton:hover {
-    background: #e62e75;
-    transform: translateY(-3px);
-}
-  /* ---------- Your existing CSS ---------- */
-#welcome-popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #0cd30c;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 25px rgba(230, 10, 10, 0.3);
-      z-index: 99999; /* always on top */
-      display: none;
+    
+    nav a:hover { 
+      background:#0077cc; 
     }
 
-    #thankYouPopup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0,0,0,0.5);
-      
-</style>
-
-  <style>
-    /* Butterfly animation */
-.butterfly {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background-image: url('butterly.png'); /* Replace with your butterfly image */
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.9;
-  animation: flutter linear forwards;
-}
-
-@keyframes flutter {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-    opacity: 0;
-  }
-  10% { opacity: 1; }
-  50% {
-    transform: translate(calc(100vw * var(--x)), calc(-200px * var(--y))) rotate(360deg);
-  }
-  100% {
-    transform: translate(calc(100vw * var(--x)), calc(-400px * var(--y))) rotate(720deg);
-    opacity: 0;
-  }
-}
-
-    /* ---------- General Reset ---------- */
-    body, html { margin:0; padding:0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; background: #f9f9f9; color:#222222; line-height:1.7; overflow-x: hidden; cursor:none; }
-    a { text-decoration:none; color:#0077cc; font-weight:500; }
-    a:hover { text-decoration: underline; }
-
-    /* ---------- Dark Mode ---------- */
-    body.dark-mode { background:#121212; color:#f0f0f0; }
-    body.dark-mode header, body.dark-mode footer { background:#1f1f1f; color:#f0f0f0; }
-    body.dark-mode nav a:hover { color:#0077cc; }
-
-    /* ---------- Header ---------- */
-    header { background:#222; color:#fff; padding:15px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.3);}
-    header .logo { display:flex; align-items:center; gap:15px; }
-    header .logo img { width:60px; height:60px; border-radius:50%; }
-
-    /* ---------- Navigation ---------- */
-    nav { display:flex; justify-content:center; gap:15px; background:#333; padding:10px 0; position:sticky; top:75px; z-index:999;}
-    nav a { color:#fff; padding:8px 12px; border-radius:5px; transition:0.3s; }
-    nav a:hover { background:#0077cc; }
-
     /* ---------- Modern Section Cards ---------- */
-    section { padding:50px 20px; max-width:1000px; margin:50px auto; }
+    section { 
+      padding:50px 20px; 
+      max-width:1000px; 
+      margin:50px auto; 
+    }
+    
     section .card {
       background: #fff;
       border-radius: 15px;
@@ -284,55 +177,176 @@ nav a.active {
       margin-bottom: 30px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
+    
     section .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 25px rgba(0,0,0,0.15);
     }
-    section h2 { font-family: 'Poppins', sans-serif; font-weight:600; font-size:2rem; text-align:center; margin-bottom:40px; color:#0077cc; }
-    section h3 { font-family: 'Poppins', sans-serif; font-weight:500; font-size:1.5rem; margin-bottom:15px; color:#222; }
-    section p, section ul li { font-size:1rem; color:#555; line-height:1.6; }
-    section ul { list-style: disc; padding-left: 20px; }
-    .card-btn { display:inline-block; margin-top:15px; padding:10px 20px; background:#0077cc; color:#fff; border-radius:8px; border:none; cursor:pointer; transition:0.3s; text-decoration:none; }
-    .card-btn:hover { background:#005fa3; }
-    body.dark-mode section .card { background:#1f1f1f; color:#f0f0f0; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-    body.dark-mode .card-btn { background:#00bfff; color:#1f1f1f; }
-    body.dark-mode .card-btn:hover { background:#0099cc; }
+    
+    section h2 { 
+      font-family: 'Poppins', sans-serif; 
+      font-weight:600; 
+      font-size:2rem; 
+      text-align:center; 
+      margin-bottom:40px; 
+      color:#0077cc; 
+    }
+    
+    section h3 { 
+      font-family: 'Poppins', sans-serif; 
+      font-weight:500; 
+      font-size:1.5rem; 
+      margin-bottom:15px; 
+      color:#222; 
+    }
+    
+    section p, 
+    section ul li { 
+      font-size:1rem; 
+      color:#555; 
+      line-height:1.6; 
+    }
+    
+    section ul { 
+      list-style: disc; 
+      padding-left: 20px; 
+    }
+    
+    .card-btn { 
+      display:inline-block; 
+      margin-top:15px; 
+      padding:10px 20px; 
+      background:#0077cc; 
+      color:#fff; 
+      border-radius:8px; 
+      border:none; 
+      cursor:pointer; 
+      transition:0.3s; 
+      text-decoration:none; 
+    }
+    
+    .card-btn:hover { 
+      background:#005fa3; 
+    }
+    
+    body.dark-mode section .card { 
+      background:#1f1f1f; 
+      color:#f0f0f0; 
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+    }
+    
+    body.dark-mode .card-btn { 
+      background:#00bfff; 
+      color:#1f1f1f; 
+    }
+    
+    body.dark-mode .card-btn:hover { 
+      background:#0099cc; 
+    }
 
     /* ---------- Slideshow ---------- */
-    .slideshow-container { position:relative; max-width:900px; margin:auto; overflow:hidden; border-radius:10px; }
-    .slides { display:none; width:100%; }
-    .slides img { width:100%; border-radius:10px; }
-    .fade { animation:fade 1.5s; }
-    @keyframes fade { from {opacity:0.4} to {opacity:1} }
+    .slideshow-container { 
+      position:relative; 
+      max-width:900px; 
+      margin:auto; 
+      overflow:hidden; 
+      border-radius:10px; 
+    }
+    
+    .slides { 
+      display:none; 
+      width:100%; 
+    }
+    
+    .slides img { 
+      width:100%; 
+      border-radius:10px; 
+    }
+    
+    .fade { 
+      animation:fade 1.5s; 
+    }
+    
+    @keyframes fade { 
+      from {opacity:0.4} 
+      to {opacity:1} 
+    }
 
     /* ---------- Footer ---------- */
-    footer { text-align:center; padding:15px; background:#222; color:#fff; }
+    footer { 
+      text-align:center; 
+      padding:15px; 
+      background:#222; 
+      color:#fff; 
+    }
 
     /* ---------- Welcome Popup ---------- */
-    #welcomePopup { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; z-index:9999; backdrop-filter: blur(5px);}
-    #welcomePopup .popup-content { background:#fff; padding:30px; border-radius:10px; text-align:center; max-width:400px; position:relative; overflow:hidden;}
-    #welcomePopup button { margin-top:20px; padding:10px 15px; border:none; border-radius:5px; background:#0077cc; color:#fff; cursor:pointer; }
+    #welcomePopup { 
+      position:fixed; 
+      top:0; 
+      left:0; 
+      width:100%; 
+      height:100%; 
+      background:rgba(0,0,0,0.7); 
+      display:flex; 
+      align-items:center; 
+      justify-content:center; 
+      z-index:9999; 
+      backdrop-filter: blur(5px);
+    }
+    
+    #welcomePopup .popup-content { 
+      background:#fff; 
+      padding:30px; 
+      border-radius:10px; 
+      text-align:center; 
+      max-width:400px; 
+      position:relative; 
+      overflow:hidden;
+    }
+    
+    #welcomePopup button { 
+      margin-top:20px; 
+      padding:10px 15px; 
+      border:none; 
+      border-radius:5px; 
+      background:#0077cc; 
+      color:#fff; 
+      cursor:pointer; 
+    }
 
-/* ---------- Glowing Cursor Trail ---------- */
-.trailDot {
-  position: fixed;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  pointer-events: none;
-  background: #ff3f8e;
-  box-shadow: 0 0 15px #ff3f8e, 0 0 30px #ff3f8e, 0 0 45px #ff3f8e;
-  transform: translate(-50%, -50%);
-  transition: transform 0.05s ease, background 0.3s, box-shadow 0.3s;
-  z-index: 9999;
-}
+    /* ---------- Glowing Cursor Trail ---------- */
+    .trailDot {
+      position: fixed;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: #ff3f8e;
+      box-shadow: 0 0 15px #ff3f8e, 0 0 30px #ff3f8e, 0 0 45px #ff3f8e;
+      transform: translate(-50%, -50%);
+      transition: transform 0.05s ease, background 0.3s, box-shadow 0.3s;
+      z-index: 9999;
+    }
 
     /* ---------- Balloon Style ---------- */
-    .balloon { position:absolute; bottom:-50px; border-radius:50%; animation:floatUp linear forwards; }
-    @keyframes floatUp { 0% { transform:translateY(0);} 100% { transform:translateY(-110vh);} }
+    .balloon { 
+      position:absolute; 
+      bottom:-50px; 
+      border-radius:50%; 
+      animation:floatUp linear forwards; 
+    }
+    
+    @keyframes floatUp { 
+      0% { transform:translateY(0);} 
+      100% { transform:translateY(-110vh);} 
+    }
 
     /* ---------- Lighting Flash Effect ---------- */
-    body.flash-effect { animation: flash 0.5s ease; }
+    body.flash-effect { 
+      animation: flash 0.5s ease; 
+    }
+    
     @keyframes flash {
       0% { box-shadow: inset 0 0 50px rgba(255,255,255,0.5); }
       50% { box-shadow: inset 0 0 200px rgba(255,255,255,0.7); }
@@ -350,115 +364,308 @@ nav a.active {
       opacity: 0.9;
       animation: sparkleFall linear forwards;
     }
+    
     @keyframes sparkleFall {
       0% { transform: translateY(0) rotate(0deg); opacity:1; }
       100% { transform: translateY(50vh) rotate(360deg); opacity:0; }
     }
-  </style>
-</head>
-<body>
 
-  <!-- Welcome Popup -->
-  <div id="welcomePopup">
-    <div class="popup-content">
-      <h2>Welcome to My Portfolio!</h2>
-      <p id="quoteText"></p>
-      <div id="balloons"></div>
-      <button id="enterButton">Enter Website</button>
-    </div>
-  </div>
+    /* Base Glow Text */
+    .glow-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 2.5rem;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      animation: neonGlow 2s ease-in-out infinite alternate;
+      z-index: 1;
+    }
 
-  <!-- Header -->
-  <header data-aos="fade-down">
-    <div class="logo">
-      <img src="my_logo.jpg" alt="my logo" onerror="this.src='https://via.placeholder.com/60?text=Logo'">
-      <h1 class="glow-text textured-text sparkle-text">Manoj Kumar YM - Portfolio</h1>
+    /* Neon Glow Animation */
+    @keyframes neonGlow {
+      0% {
+        text-shadow: 
+          0 0 5px #ff3f8e,
+          0 0 10px #ff3f8e,
+          0 0 20px #ff3f8e,
+          0 0 30px #ff66cc,
+          0 0 40px #ff66cc;
+      }
+      100% {
+        text-shadow: 
+          0 0 10px #ff3f8e,
+          0 0 20px #ff3f8e,
+          0 0 30px #ff3f8e,
+          0 0 40px #ff66cc,
+          0 0 50px #ff66cc;
+      }
+    }
 
+    /* Moving Gradient Texture */
+    .textured-text {
+      background: linear-gradient(270deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
+      background-size: 1000% 1000%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 8s ease infinite;
+    }
 
-    </div>
-<!-- Download Resume Button -->
-<a href="#" class="party-download-btn" onclick="downloadResume(event)">📄 Download Resume</a>
+    /* Gradient Movement Animation */
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-<!-- Thank You Popup -->
-<div id="thankYouPopup">Thank you! Your resume download will start shortly.</div>
+    /* Modern Floating Buttons - Always on top */
+    #darkModeToggle,
+    #musicButton {
+        position: fixed;
+        padding: 12px 18px;
+        border: none;
+        border-radius: 10px;
+        font-weight: 500;
+        cursor: pointer;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        transition: 0.3s, transform 0.2s;
+        z-index: 100000;
+    }
 
-<script>
-function downloadResume(event) {
-  event.preventDefault(); // Prevent default link behavior
+    /* Dark Mode Button */
+    #darkModeToggle {
+        background: #0077cc;
+        color: #fff;
+        right: 20px;
+        bottom: 20px;
+    }
+    
+    #darkModeToggle:hover {
+        background: #005fa3;
+        transform: translateY(-3px);
+    }
 
-  // Trigger download
-  const link = document.createElement('a');
-  link.href = 'resume.pdf'; // path to your resume
-  link.download = 'resume.pdf';
-  link.click();
+    /* Music Button */
+    #musicButton {
+        background: #ff3f8e;
+        color: #fff;
+        right: 20px;
+        bottom: 70px;
+    }
+    
+    #musicButton:hover {
+        background: #e62e75;
+        transform: translateY(-3px);
+    }
 
-  // Show thank you popup
-  alert("Thank you! Your resume download has started.");
+    /* Party Download Button */
+    .party-download-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 45px;
+      padding: 15px 35px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 50px;
+      z-index: 10000;
+      background: linear-gradient(270deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
+      background-size: 1000% 1000%;
+      box-shadow: 0 0 20px #ff3f8e, 0 0 40px #ffcc00, 0 0 60px #33cc33;
+      animation: gradientMove 5s ease infinite, bounce 2s infinite, neonGlow 2s ease-in-out infinite alternate;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    /* Bounce animation */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Thank You Popup */
+    #thankYouPopup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.5);
+      z-index: 10000;
+    }
+    
+    #thankYouPopup .popup-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      position: relative;
+    }
+
+    /* Butterfly animation */
+    .butterfly {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.9;
+      animation: flutter linear forwards;
+    }
+
+    @keyframes flutter {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 1; }
+      50% {
+        transform: translate(calc(100vw * var(--x)), calc(-200px * var(--y))) rotate(360deg);
+      }
+      100% {
+        transform: translate(calc(100vw * var(--x)), calc(-400px * var(--y))) rotate(720deg);
+        opacity: 0;
+      }
+    }
+    /* Nav button hover effects */
+nav a {
+  position: relative;
+  transition: color 0.3s, transform 0.2s;
 }
-</script>
-  </header>
-<body>
-<style>
-.party-download-btn {
-  position: fixed; /* stays on screen */
-  right: 20px;
-  bottom: 45px; /* adjusted lower */
-  padding: 15px 35px;
-  font-size: 18px;
-  font-weight: 700;
+
+/* Glow effect */
+nav a:hover {
+  color: #ff3f8e;
+  text-shadow: 0 0 8px #ff3f8e, 0 0 15px #ff66cc;
+  transform: translateY(-2px);
+}
+
+/* Animated underline */
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
+  transition: width 0.4s ease;
+  border-radius: 2px;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Sparkle effect on hover */
+nav a:hover::before {
+  content: "✨";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  animation: sparkle 0.6s ease forwards;
+}
+
+@keyframes sparkle {
+  0% { opacity: 0; transform: translateX(-50%) scale(0); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
+  100% { opacity: 0; transform: translateX(-50%) scale(1); }
+}
+/* Spark particles for nav buttons */
+.nav-sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  background: #ff3f8e;
+  animation: sparkleMove 1s linear forwards;
+  z-index: 1000;
+}
+
+@keyframes sparkleMove {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
+}
+/* Highlight nav buttons */
+nav a {
+  position: relative;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
   color: #fff;
-  text-decoration: none;
-  text-align: center;
-  border-radius: 50px;
-  z-index: 10000;
-  background: linear-gradient(270deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
-  background-size: 1000% 1000%;
-  box-shadow: 0 0 20px #ff3f8e, 0 0 40px #ffcc00, 0 0 60px #33cc33;
-  animation: gradientMove 5s ease infinite, bounce 2s infinite, neonGlow 2s ease-in-out infinite alternate;
-  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Bounce animation */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+/* Gradient background highlight on hover */
+nav a:hover,
+nav a.active {
+  background: linear-gradient(90deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
+  background-size: 300% 100%;
+  color: #fff;
+  box-shadow: 0 0 10px #ff3f8e, 0 0 20px #ffcc00, 0 0 30px #33cc33;
+  transform: translateY(-2px);
+  animation: gradientMove 3s ease infinite;
 }
 
-/* Neon Glow */
-@keyframes neonGlow {
-  0% { box-shadow: 0 0 15px #ff3f8e, 0 0 30px #ffcc00, 0 0 45px #33cc33; }
-  100% { box-shadow: 0 0 30px #ff3f8e, 0 0 60px #ffcc00, 0 0 90px #33cc33; }
-}
-
-/* Gradient animation */
+/* Smooth gradient animation */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
-/* Hover Effect */
-.party-download-btn:hover {
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 0 35px #ff3f8e, 0 0 70px #ffcc00, 0 0 105px #33cc33;
-  background: linear-gradient(270deg, #33cc33, #3399ff, #ff66cc, #ff3f8e, #ffcc00);
+/* Navigation bar full-width background */
+nav {
+  display: flex;
+  justify-content: center; /* center the buttons */
+  gap: 15px;
+  flex-wrap: wrap;          /* optional: wrap on smaller screens */
+  padding: 15px 0;          /* vertical padding */
+  background: hsl(190, 89%, 48%);         /* same as header background */
+  position: sticky;          /* optional: sticky nav */
+  top: 75px;                /* adjust so it sticks below header */
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* subtle shadow */
 }
-</style>
 
-</body>
+  </style>
+</head>
+
+<body>
+ 
+  <!-- Header -->
+  <header data-aos="fade-down">
+  <div class="logo">
+    <img src="my_logo.jpg" alt="my logo" onerror="this.src='https://via.placeholder.com/60?text=Logo'">
+    <div class="name-wrapper">
+      <h1 class="glow-text textured-text">Manoj Kumar YM - Portfolio</h1>
+      <p id="date-time"></p> <!-- This will show live date/time -->
+    </div>
+  </div>
+    
+    <!-- Download Resume Button -->
+    <a href="#" id="downloadResume" class="party-download-btn">📄 Download Resume</a>
+  </header>
 
   <!-- Navigation -->
   <nav data-aos="fade-up">
-  <div id="navSparkles"></div>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#experience">Experience</a>
-  <a href="#awards">Awards</a>
-  <a href="#blog">Blog</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</nav>
-
+    <div id="navSparkles"></div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#awards">Awards</a>
+    <a href="#blog">Blog</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <!-- Slideshow -->
   <section class="slideshow-container" data-aos="fade-up">
@@ -513,7 +720,7 @@ function downloadResume(event) {
     <div class="card">
       <ul>
         <li>🏅 Wells Fargo Gold Coin Award (2024)</li>
-        <li>🎖️ Manager’s Spotlight Award</li>
+        <li>🎖️ Manager's Spotlight Award</li>
         <li>🏆 First Feather Cap Award (twice)</li>
         <li>⭐ Learning Champion</li>
         <li>✅ Maintained 0 critical errors for 3.10 years</li>
@@ -534,7 +741,7 @@ function downloadResume(event) {
         <p>It also covers hosting on GitHub Pages and responsive design for mobile devices.</p>
       </div>
     </div>
-    <!-- Add more blog cards here if needed -->
+    <h3>Coming soon...</h3>
   </section>
 
   <!-- Projects Section -->
@@ -585,19 +792,34 @@ function downloadResume(event) {
   <!-- Music Button -->
   <button id="musicButton">Pause Music</button>
 
+  <!-- Thank You Popup -->
+  <div id="thankYouPopup">
+    <div class="popup-content">
+      <h2>Thank You!</h2>
+      <p>We appreciate your visit!</p>
+      <div id="thankBalloons"></div>
+      <button id="closeThankYou">Close</button>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
+    // Initialize AOS
     AOS.init({ duration: 1000 });
 
     // Slideshow
     let slideIndex = 0;
     function showSlides() {
       const slides = document.getElementsByClassName("slides");
-      for(let i=0;i<slides.length;i++){ slides[i].style.display="none"; }
+      for(let i = 0; i < slides.length; i++){ 
+        slides[i].style.display = "none"; 
+      }
       slideIndex++;
-      if(slideIndex>slides.length){ slideIndex=1; }
-      slides[slideIndex-1].style.display="block";
+      if(slideIndex > slides.length){ 
+        slideIndex = 1; 
+      }
+      slides[slideIndex-1].style.display = "block";
       setTimeout(showSlides, 4000);
     }
     showSlides();
@@ -608,374 +830,266 @@ function downloadResume(event) {
     }
 
     // Dark Mode Toggle with Lighting Effect
-    document.getElementById('darkModeToggle').addEventListener('click',()=>{ document.body.classList.toggle('dark-mode'); document.body.classList.add('flash-effect'); setTimeout(()=>{ document.body.classList.remove('flash-effect'); },500); });
+    document.getElementById('darkModeToggle').addEventListener('click', () => { 
+      document.body.classList.toggle('dark-mode'); 
+      document.body.classList.add('flash-effect'); 
+      setTimeout(() => { 
+        document.body.classList.remove('flash-effect'); 
+      }, 500); 
+    });
+let audioStarted = false;
 
-    // Welcome quote
-    const quotes = ["Stay positive, work hard, make it happen!","Believe in yourself and all that you are.","Every day is a new opportunity to shine!","Keep going, your breakthrough is coming!","Happiness is homemade – smile today!","Small steps each day lead to big results!","Your attitude determines your direction!","Learning never stops; grow a little every day!"];
-    const quoteText = document.getElementById("quoteText");
-    quoteText.innerText = quotes[Math.floor(Math.random()*quotes.length)];
+// Start music on first user interaction
+function startAudioOnInteraction() {
+  if (!audioStarted) {
+    audio.play().catch(() => console.log("User interaction required to play audio"));
+    audioStarted = true;
 
-    // Continuous balloons
-    function createBalloon() {
-      const balloon = document.createElement('div');
-      balloon.classList.add('balloon');
-      const colors = ['#ff4d4d','#ffcc00','#33cc33','#3399ff','#ff66cc'];
-      balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      balloon.style.left = Math.random() * 80 + '%';
-      balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
-      balloon.style.width = 15 + Math.random() * 15 + 'px';
-      balloon.style.height = 20 + Math.random() * 20 + 'px';
-      balloon.style.opacity = Math.random() * 0.8 + 0.2;
-      document.getElementById('balloons').appendChild(balloon);
-      setTimeout(() => balloon.remove(), 10000);
-    }
-    let balloonInterval = setInterval(() => { if(document.getElementById('welcomePopup').style.display !== 'none') createBalloon(); }, 200);
+    // After starting, update button text
+    musicButton.innerText = 'Pause Music';
+    
+    // Remove event listeners after first interaction
+    window.removeEventListener('click', startAudioOnInteraction);
+    window.removeEventListener('keydown', startAudioOnInteraction);
+    window.removeEventListener('touchstart', startAudioOnInteraction);
+  }
+}
 
-    document.getElementById("enterButton").addEventListener("click", () => { document.getElementById("welcomePopup").style.display = "none"; clearInterval(balloonInterval); });
+// Listen for first user interaction
+window.addEventListener('click', startAudioOnInteraction);
+window.addEventListener('keydown', startAudioOnInteraction);
+window.addEventListener('touchstart', startAudioOnInteraction);
 
     // Music autoplay + play/pause
     const musicList = ['music1.mp3','music2.mp3','music3.mp3','music4.mp3','music5.mp3'];
-    let audio = new Audio(musicList[Math.floor(Math.random()*musicList.length)]);
-    audio.loop = false; audio.play();
+    let audio = new Audio(musicList[Math.floor(Math.random() * musicList.length)]);
+    audio.loop = false; 
+    
+    
     const musicButton = document.getElementById('musicButton');
-    musicButton.addEventListener('click',()=>{ if(audio.paused){ audio.play(); musicButton.innerText='Pause Music'; }else{ audio.pause(); musicButton.innerText='Play Music'; } });
-    audio.addEventListener('ended',()=>{ let idx=Math.floor(Math.random()*musicList.length); audio.src=musicList[idx]; audio.play(); });
+    musicButton.addEventListener('click', () => { 
+      if(audio.paused){ 
+        audio.play(); 
+        musicButton.innerText = 'Pause Music'; 
+      } else { 
+        audio.pause(); 
+        musicButton.innerText = 'Play Music'; 
+      } 
+    });
+    
+    audio.addEventListener('ended', () => { 
+      let idx = Math.floor(Math.random() * musicList.length); 
+      audio.src = musicList[idx]; 
+      audio.play(); 
+    });
 
     // Blog toggle
-    document.querySelectorAll('.showBlogDetailsBtn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
+    document.querySelectorAll('.showBlogDetailsBtn').forEach(btn => {
+      btn.addEventListener('click', () => {
         const cardDetails = btn.nextElementSibling;
         cardDetails.style.display = cardDetails.style.display === 'none' ? 'block' : 'none';
       });
     });
 
     // Project toggle
-    document.getElementById('showProjectDetails').addEventListener('click',()=>{
+    document.getElementById('showProjectDetails').addEventListener('click', () => {
       const projectDetails = document.getElementById('projectDetails');
       projectDetails.style.display = projectDetails.style.display === 'none' ? 'block' : 'none';
     });
 
-  </script>
-<script>
-window.addEventListener('DOMContentLoaded', () => {
-  // Trail settings
-  const trailColors = ['#FF3F8E','#04C2C9','#2E55C1','#FFAA00','#8DFF33','#FF3F8E'];
-  const trailCount = 8;
-  const trailDots = [];
-  const positions = Array(trailCount).fill({x:0, y:0});
-  let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2;
+    // Cursor trail effect
+    window.addEventListener('DOMContentLoaded', () => {
+      // Trail settings
+      const trailColors = ['#FF3F8E','#04C2C9','#2E55C1','#FFAA00','#8DFF33','#FF3F8E'];
+      const trailCount = 8;
+      const trailDots = [];
+      const positions = Array(trailCount).fill({x:0, y:0});
+      let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2;
 
-  // Create trail dots
-  for (let i = 0; i < trailCount; i++) {
-    const dot = document.createElement('div');
-    dot.classList.add('trailDot');
-    document.body.appendChild(dot);
-    trailDots.push(dot);
-  }
+      // Create trail dots
+      for (let i = 0; i < trailCount; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('trailDot');
+        document.body.appendChild(dot);
+        trailDots.push(dot);
+      }
 
-  // Track mouse
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
+      // Track mouse
+      document.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
 
-  // Animate trail
-  function animateTrail() {
-    positions.unshift({x: mouseX, y: mouseY});
-    positions.pop();
+      // Animate trail
+      function animateTrail() {
+        positions.unshift({x: mouseX, y: mouseY});
+        positions.pop();
 
-    trailDots.forEach((dot, i) => {
-      const pos = positions[i];
-      dot.style.left = pos.x + 'px';
-      dot.style.top = pos.y + 'px';
-      const color = trailColors[(i + Math.floor(Date.now()/200)) % trailColors.length];
-      dot.style.background = color;
-      dot.style.boxShadow = `0 0 15px ${color}, 0 0 30px ${color}, 0 0 45px ${color}`;
+        trailDots.forEach((dot, i) => {
+          const pos = positions[i];
+          dot.style.left = pos.x + 'px';
+          dot.style.top = pos.y + 'px';
+          const color = trailColors[(i + Math.floor(Date.now()/200)) % trailColors.length];
+          dot.style.background = color;
+          dot.style.boxShadow = `0 0 15px ${color}, 0 0 30px ${color}, 0 0 45px ${color}`;
+        });
+
+        requestAnimationFrame(animateTrail);
+      }
+
+      animateTrail();
     });
 
-    requestAnimationFrame(animateTrail);
-  }
-
-  animateTrail();
-});
-</script>
-
-
-<script>
-  // Dark Mode Toggle with flash effect
-  document.getElementById('darkModeToggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    document.body.classList.add('flash-effect');
-    setTimeout(() => {
-      document.body.classList.remove('flash-effect');
-    }, 500);
-  });
-
-  // Music Play/Pause
-  const musicButton = document.getElementById('musicButton');
-  let isPlaying = true;
-  let musicList = ['music1.mp3','music2.mp3','music3.mp3']; // your music files
-  let currentMusic = new Audio(musicList[Math.floor(Math.random()*musicList.length)]);
-  currentMusic.play().catch(e => console.log('Autoplay blocked', e));
-
-  musicButton.addEventListener('click', () => {
-    if (isPlaying) {
-      currentMusic.pause();
-      musicButton.innerText = "Play Music";
-      isPlaying = false;
-    } else {
-      currentMusic.play();
-      musicButton.innerText = "Pause Music";
-      isPlaying = true;
+    // Balloon creation function
+    function createThankBalloon() {
+      const balloon = document.createElement('div');
+      balloon.classList.add('balloon');
+      const colors = ['#ff4d4d','#ffcc00','#33cc33','#3399ff','#ff66cc','#ff3f8e'];
+      balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.left = Math.random() * 80 + '%';
+      balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
+      balloon.style.width = 15 + Math.random() * 15 + 'px';
+      balloon.style.height = 20 + Math.random() * 20 + 'px';
+      balloon.style.opacity = Math.random() * 0.8 + 0.2;
+      document.getElementById('thankBalloons').appendChild(balloon);
+      setTimeout(() => balloon.remove(), 10000);
     }
-  });
 
-</script>
-<!-- Thank You Popup -->
-<div id="thankYouPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); align-items:center; justify-content:center; z-index:10000; backdrop-filter: blur(5px);">
-  <div class="popup-content" style="background:#fff; padding:30px; border-radius:10px; text-align:center; max-width:400px; position:relative; overflow:hidden;">
-    <h2>Thank You!</h2>
-    <p>We appreciate your visit!</p>
-    <div id="thankBalloons"></div>
-    <button id="closeThankYou" style="margin-top:20px; padding:10px 15px; border:none; border-radius:5px; background:#0077cc; color:#fff; cursor:pointer;">Close</button>
-  </div>
-</div>
-<script>
-  // Balloon creation function
-  function createThankBalloon() {
-    const balloon = document.createElement('div');
-    balloon.classList.add('balloon');
-    const colors = ['#ff4d4d','#ffcc00','#33cc33','#3399ff','#ff66cc','#ff3f8e'];
-    balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-    balloon.style.left = Math.random() * 80 + '%';
-    balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
-    balloon.style.width = 15 + Math.random() * 15 + 'px';
-    balloon.style.height = 20 + Math.random() * 20 + 'px';
-    balloon.style.opacity = Math.random() * 0.8 + 0.2;
-    document.getElementById('thankBalloons').appendChild(balloon);
-    setTimeout(() => balloon.remove(), 10000);
-  }
-
-  let thankInterval;
-
-  // Show Thank You popup
-  function showThankYouPopup() {
-    const popup = document.getElementById('thankYouPopup');
-    popup.style.display = 'flex';
-    thankInterval = setInterval(createThankBalloon, 200);
-  }
-
-  // Close Thank You popup
-  document.getElementById('closeThankYou').addEventListener('click', () => {
-    document.getElementById('thankYouPopup').style.display = 'none';
-    clearInterval(thankInterval);
-  });
-
-  // Trigger popup **only when clicking Download Resume**
-  document.getElementById('downloadResume').addEventListener('click', () => {
-    showThankYouPopup();
-  });
-</script>
-
-<script>
-  const downloadBtn = document.getElementById("downloadResume");
-  const thankPopup = document.getElementById("thankYouPopup");
-  const closeThank = document.getElementById("closeThankYou");
-
-  downloadBtn.addEventListener("click", (e) => {
-    e.preventDefault(); 
-    thankPopup.style.display = "flex"; // show thank you popup
-
-    // Start balloons
-    let balloonInterval = setInterval(() => {
-      if (thankPopup.style.display !== "none") createThankBalloon();
-    }, 300);
-
-    // Auto download after 3 seconds
-    setTimeout(() => {
-      const link = document.createElement("a");
-      link.href = downloadBtn.href;   // path to resume.pdf
-      link.download = "resume.pdf";   // force download
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }, 3000);
-
-    // Stop balloons when popup is closed
-    closeThank.addEventListener("click", () => {
-      thankPopup.style.display = "none";
-      clearInterval(balloonInterval);
+    // Download Resume functionality
+    document.getElementById("downloadResume").addEventListener("click", (e) => {
+      e.preventDefault();
+      
+      // Show thank you popup
+      document.getElementById("thankYouPopup").style.display = "flex";
+      
+      // Create balloons
+      let balloonInterval = setInterval(() => {
+        if (document.getElementById("thankYouPopup").style.display !== "none") {
+          createThankBalloon();
+        }
+      }, 300);
+      
+      // Close popup handler
+      document.getElementById("closeThankYou").addEventListener("click", () => {
+        document.getElementById("thankYouPopup").style.display = "none";
+        clearInterval(balloonInterval);
+      });
+      
+      // Trigger download after a short delay
+      setTimeout(() => {
+        const link = document.createElement('a');
+        link.href = 'resume.pdf';
+        link.download = 'resume.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, 1000);
     });
-  });
 
-  // Balloon creation function
-  function createThankBalloon() {
-    const balloon = document.createElement("div");
-    balloon.classList.add("balloon");
-    const colors = ["#ff4d4d", "#ffcc00", "#33cc33", "#3399ff", "#ff66cc", "#ff3f8e"];
-    balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-    balloon.style.left = Math.random() * 80 + "%";
-    balloon.style.animationDuration = (5 + Math.random() * 5) + "s";
-    balloon.style.width = 15 + Math.random() * 15 + "px";
-    balloon.style.height = 20 + Math.random() * 20 + "px";
-    balloon.style.opacity = Math.random() * 0.8 + 0.2;
-    document.getElementById("thankBalloons").appendChild(balloon);
-    setTimeout(() => balloon.remove(), 10000);
-  }
-</script>
-<script>
-  function createPartyBalloon() {
-    const balloon = document.createElement('div');
-    balloon.classList.add('balloon');
-    const colors = ['#ff4d4d','#ffcc00','#33cc33','#3399ff','#ff66cc','#ff3f8e'];
-    balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-    balloon.style.left = Math.random() * 100 + '%';
-    balloon.style.bottom = '-50px';
-    balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
-    balloon.style.width = 15 + Math.random() * 15 + 'px';
-    balloon.style.height = 20 + Math.random() * 20 + 'px';
-    balloon.style.opacity = Math.random() * 0.8 + 0.2;
-    document.body.appendChild(balloon);
-    setTimeout(() => balloon.remove(), 10000);
-  }
+    // Create sparkles continuously
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.background = ['#ff3f8e','#04C2C9','#2E55C1','#FFAA00','#8DFF33'][Math.floor(Math.random()*5)];
+      sparkle.style.left = Math.random() * window.innerWidth + 'px';
+      sparkle.style.top = Math.random() * window.innerHeight + 'px';
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 2000);
+    }
 
-  // Create balloons continuously
-  setInterval(createPartyBalloon, 300);
-</script>
-<script>
-  function createSparkle() {
-    const sparkle = document.createElement('div');
-    sparkle.classList.add('sparkle');
-    sparkle.style.background = ['#ff3f8e','#04C2C9','#2E55C1','#FFAA00','#8DFF33'][Math.floor(Math.random()*5)];
-    sparkle.style.left = Math.random() * window.innerWidth + 'px';
-    sparkle.style.top = Math.random() * window.innerHeight + 'px';
-    document.body.appendChild(sparkle);
-    setTimeout(() => sparkle.remove(), 2000);
-  }
+    setInterval(createSparkle, 200);
 
-  setInterval(createSparkle, 200); // create sparkles continuously
-</script>
-<script>
-  function randomFlash() {
-    document.body.classList.add('flash-effect');
-    setTimeout(() => document.body.classList.remove('flash-effect'), 300);
-  }
+    // Random flash effect
+    function randomFlash() {
+      document.body.classList.add('flash-effect');
+      setTimeout(() => document.body.classList.remove('flash-effect'), 300);
+    }
 
-  // Random flash every 3-8 seconds
-  setInterval(() => {
-    if(Math.random() < 0.5) randomFlash();
-  }, 3000 + Math.random()*5000);
-</script>
-<script>
-const downloadBtn = document.getElementById("downloadResume");
-const feedbackPopup = document.getElementById("feedbackPopup");
-const closeFeedback = document.getElementById("closeFeedback");
-const feedbackForm = document.getElementById("feedbackForm");
-function createButterfly() {
-  const butterfly = document.createElement('div');
-  butterfly.classList.add('butterfly');
+    setInterval(() => {
+      if(Math.random() < 0.5) randomFlash();
+    }, 3000 + Math.random()*5000);
 
-  // Random horizontal position
-  butterfly.style.left = Math.random() * 90 + 'vw';
-  butterfly.style.top = '60px'; // start near header
+    // Butterfly animation
+    function createButterfly() {
+      const butterfly = document.createElement('div');
+      butterfly.classList.add('butterfly');
 
-  // Random speed & path multiplier
-  butterfly.style.setProperty('--x', Math.random());
-  butterfly.style.setProperty('--y', Math.random());
+      // Random horizontal position
+      butterfly.style.left = Math.random() * 90 + 'vw';
+      butterfly.style.top = '60px';
 
-  // Random size
-  const size = 20 + Math.random() * 20;
-  butterfly.style.width = size + 'px';
-  butterfly.style.height = size + 'px';
+      // Random speed & path multiplier
+      butterfly.style.setProperty('--x', Math.random());
+      butterfly.style.setProperty('--y', Math.random());
 
-  document.body.appendChild(butterfly);
+      // Random size
+      const size = 20 + Math.random() * 20;
+      butterfly.style.width = size + 'px';
+      butterfly.style.height = size + 'px';
 
-  // Remove after animation
-  setTimeout(() => butterfly.remove(), 8000); // matches CSS animation duration
+      document.body.appendChild(butterfly);
+
+      // Remove after animation
+      setTimeout(() => butterfly.remove(), 8000);
+    }
+
+    // Generate butterflies every 500ms
+    setInterval(createButterfly, 500);
+    
+    // Live Date & Time
+function updateDateTime() {
+  const now = new Date();
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  };
+  document.getElementById('liveDateTime').innerText = now.toLocaleDateString('en-US', options);
 }
 
-// Generate butterflies every 500ms
-setInterval(createButterfly, 500);
-// Generate sparkles continuously behind nav buttons
-const navSparklesContainer = document.getElementById("navSparkles");
+// Update every second
+setInterval(updateDateTime, 1000);
+updateDateTime();
+// Continuous sparkles for nav buttons
+const navLinks = document.querySelectorAll("nav a");
 
-function createNavSparkle() {
-  const sparkle = document.createElement("div");
-  sparkle.classList.add("nav-sparkle");
+navLinks.forEach(link => {
+  link.style.position = "relative"; // make sure relative for absolute sparks
 
-  // Random position within nav
-  const navWidth = navSparklesContainer.offsetWidth;
-  const navHeight = navSparklesContainer.offsetHeight;
-  sparkle.style.left = Math.random() * navWidth + "px";
-  sparkle.style.top = Math.random() * navHeight + "px";
+  link.addEventListener("mouseenter", () => {
+    const sparkleInterval = setInterval(() => {
+      const sparkle = document.createElement("div");
+      sparkle.className = "nav-sparkle";
 
-  // Random color
-  const colors = ["#ff3f8e","#ffcc00","#33cc33","#3399ff","#ff66cc"];
-  sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+      // Random color
+      const colors = ["#ff3f8e","#04C2C9","#2E55C1","#FFAA00","#8DFF33"];
+      sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
 
-  // Random animation duration
-  sparkle.style.animationDuration = (1 + Math.random() * 1.5) + "s";
+      // Position relative to link
+      const rect = link.getBoundingClientRect();
+      const x = Math.random() * rect.width;
+      const y = Math.random() * rect.height;
+      sparkle.style.left = x + "px";
+      sparkle.style.top = y + "px";
 
-  navSparklesContainer.appendChild(sparkle);
+      // Random movement
+      const moveX = (Math.random() - 0.5) * 50 + "px";
+      const moveY = (Math.random() - 0.5) * 50 + "px";
+      sparkle.style.setProperty("--x", moveX);
+      sparkle.style.setProperty("--y", moveY);
 
-  // Remove sparkle after animation
-  setTimeout(() => sparkle.remove(), 2500);
-}
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 1000);
+    }, 100);
 
-// Create sparkles every 200ms
-setInterval(createNavSparkle, 200);
-const downloadBtn = document.getElementById("downloadResume");
-const feedbackPopup = document.getElementById("feedbackPopup");
-const closeFeedback = document.getElementById("closeFeedback");
-const feedbackForm = document.getElementById("feedbackForm");
-const thankPopup = document.getElementById("thankYouPopup");
-
-downloadBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  feedbackPopup.style.display = "flex";
-});
-
-// Close feedback popup without submitting
-closeFeedback.addEventListener("click", () => {
-  feedbackPopup.style.display = "none";
-});
-
-// Handle feedback submission
-feedbackForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const feedbackText = document.getElementById("feedbackText").value.trim();
-  if(feedbackText === "") {
-    alert("Please enter your feedback before submitting!");
-    return;
-  }
-
-  // Here you can also save feedback to database if needed
-
-  feedbackPopup.style.display = "none";
-
-  // Show Thank You popup
-  thankPopup.style.display = "flex";
-  let balloonInterval = setInterval(() => { if(thankPopup.style.display !== "none") createThankBalloon(); }, 300);
-
-  // Auto download resume after 3 seconds
-  setTimeout(() => {
-    const link = document.createElement("a");
-    link.href = downloadBtn.href;
-    link.download = "resume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }, 3000);
-
-  // Stop balloons when popup is closed
-  document.getElementById("closeThankYou").addEventListener("click", () => {
-    thankPopup.style.display = "none";
-    clearInterval(balloonInterval);
+    link.addEventListener("mouseleave", () => clearInterval(sparkleInterval), { once: true });
   });
 });
 
-</script>
-
+  </script>
 </body>
 </html>
-

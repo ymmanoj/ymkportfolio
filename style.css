@@ -77,3 +77,14 @@
   50% { transform: translateY(-20px) scale(1.2); opacity:0.8; }
   100% { transform: translateY(-40px) scale(0.8); opacity:0; }
 }
+main article {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.7;
+  font-size: 1.1em;
+}
+
+.date {
+  font-size: 0.9em;
+  color: gray;
+}
