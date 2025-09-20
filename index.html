@@ -9,6 +9,105 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+    /* ---------- Section Decoration ---------- */
+
+/* About Section */
+#about {
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  border-radius: 15px;
+  padding: 40px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+#about h2 { color:#0077cc; }
+
+/* Skills Section */
+#skills ul {
+  list-style:none;
+  padding:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+}
+#skills ul li {
+  background: #0077cc;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: default;
+}
+#skills ul li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Experience Section */
+#experience ul {
+  border-left: 3px solid #0077cc;
+  padding-left: 20px;
+  list-style:none;
+}
+#experience ul li {
+  position: relative;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  background: #f0f8ff;
+  border-radius: 10px;
+}
+#experience ul li::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 15px;
+  width: 15px;
+  height: 15px;
+  background: #0077cc;
+  border-radius: 50%;
+}
+
+/* Awards Section */
+#awards ul.awards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding:0;
+  list-style:none;
+}
+#awards ul.awards li {
+  background:#fff3e0;
+  border-radius:15px;
+  padding:15px 20px;
+  min-width:200px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+#awards ul.awards li:hover { transform: translateY(-5px); }
+
+/* Contact Section */
+#contact {
+  background: #e3f2fd;
+  border-radius: 15px;
+  padding: 30px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+#contact a {
+  color: #0077cc;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+#contact a:hover { color:#004c99; text-decoration: underline; }
+section div:hover {
+  transform: translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
     /* ---------- General Reset ---------- */
     body, html { margin:0; padding:0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; background: #f9f9f9; color:#222; line-height:1.7; }
     a { text-decoration:none; color:#0077cc; font-weight:500; }
@@ -27,7 +126,7 @@
 
     /* ---------- Navigation ---------- */
     nav { display:flex; justify-content:center; gap:15px; background:#333; padding:10px 0; overflow-x:auto; scroll-behavior:smooth;}
-    nav a { color:#fff; padding:8px 12px; border-radius:5px; flex:0 0 auto; transition:0.3s; white-space:nowrap; }
+    nav a { color:#fff; padding:8px 12px; border-radius:5px; flex:0 0 auto; transition:0.3s; white-space:nowrap; text-align:center; }
     nav a:hover { background:#0077cc; }
 
     /* ---------- Sections ---------- */
@@ -43,7 +142,7 @@
     /* ---------- Slideshow ---------- */
     .slideshow-container { position:relative; max-width:900px; margin:auto; overflow:hidden; border-radius:10px; }
     .slides { display:none; width:100%; }
-    .slides img { width:100%; border-radius:10px; height:auto; object-fit:cover; }
+    .slides img { width:100%; height:auto; object-fit:contain; border-radius:10px; }
     .fade { animation:fade 1.5s; }
     @keyframes fade { from {opacity:0.4} to {opacity:1} }
 
@@ -53,38 +152,79 @@
     /* ---------- Welcome Popup ---------- */
     #welcomePopup { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; z-index:9999; }
     #welcomePopup .popup-content { background:#fff; padding:30px; border-radius:10px; text-align:center; max-width:400px; position:relative; }
-    #welcomePopup button { margin-top:15px; padding:8px 15px; border:none; border-radius:5px; background:#0077cc; color:#fff; cursor:pointer; }
+    #welcomePopup button { margin-top:15px; padding:10px 15px; border:none; border-radius:5px; background:#0077cc; color:#fff; cursor:pointer; font-size:1rem; }
 
     /* ---------- Balloons ---------- */
     .balloon { position:absolute; bottom:-30px; width:15px; height:25px; border-radius:50%; animation:floatUp linear forwards; }
     @keyframes floatUp { 0% { transform:translateY(0);} 100% { transform:translateY(-110vh);} }
 
-    /* ---------- Dark Mode Toggle Button ---------- */
-    #darkModeToggle, #musicToggle, #downloadResume { position:fixed; bottom:20px; right:20px; padding:10px 15px; border:none; border-radius:5px; cursor:pointer; z-index:1000; }
-
-    /* ---------- Music Toggle ---------- */
-    #musicToggle { bottom:70px; background:#ff6600; color:#fff; }
-    #darkModeToggle { bottom:120px; background:#0077cc; color:#fff; }
+    /* ---------- Toggle Buttons ---------- */
+    #darkModeToggle, #musicToggle, #downloadResume { position:fixed; right:15px; padding:10px 15px; border:none; border-radius:5px; cursor:pointer; z-index:1000; font-size:1rem; }
+    #musicToggle { bottom:90px; background:#ff6600; color:#fff; }
+    #darkModeToggle { bottom:140px; background:#0077cc; color:#fff; }
+    #downloadResume { bottom:40px; background:#ff6600; color:#fff; }
 
     /* ---------- Responsive ---------- */
     @media screen and (max-width: 768px) {
-      header { flex-direction: column; align-items:flex-start; padding:10px 15px; }
-      header .logo h1 { font-size:1.2rem; }
+      header { flex-direction: column; align-items:center; padding:10px 15px; }
+      header .logo h1 { font-size:1.3rem; text-align:center; }
       section { padding:30px 15px; }
       h2 { font-size:1.5rem; }
       h3 { font-size:1.2rem; }
-      p, ul li { font-size:0.9rem; }
+      p, ul li { font-size:0.95rem; }
       .slideshow-container { width:100%; border-radius:0; }
-      nav a { font-size:0.9rem; padding:6px 10px; }
+      nav a { font-size:0.95rem; padding:8px 10px; }
     }
 
     @media screen and (max-width: 480px) {
+      header { flex-direction: column; gap:10px; }
+      nav { flex-direction: column; gap:5px; padding:5px 0; }
+      nav a { display:block; width:90%; margin:auto; font-size:0.9rem; padding:10px 0; }
       #welcomePopup .popup-content { width:90%; padding:20px; }
       #welcomePopup h2 { font-size:1.2rem; }
       #welcomePopup p { font-size:0.9rem; }
-      #darkModeToggle, #musicToggle, #downloadResume { padding:8px 12px; font-size:0.85rem; }
-      .balloon { width:12px; height:20px; }
+      #darkModeToggle { bottom:160px; }
+      #musicToggle { bottom:110px; }
+      #downloadResume { bottom:60px; }
+      button { padding:8px 12px; font-size:0.85rem; }
+      .balloon { width:10px; height:15px; }
+      section { padding:25px 10px; }
+      h2 { font-size:1.4rem; }
+      h3 { font-size:1rem; }
+      p, ul li { font-size:0.85rem; }
     }
+    /* ---------- Section Reveal Animation ---------- */
+.section-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Resume Button in Header */
+header {
+  display: flex;
+  justify-content: space-between; /* Logo left, resume button right */
+  align-items: center;
+}
+
+header .resume-btn a {
+  background: #ff6600;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+header .resume-btn a:hover {
+  background: #e65c00;
+}
+
   </style>
 </head>
 <body>
@@ -93,33 +233,32 @@
   <div id="welcomePopup">
     <div class="popup-content">
       <h2>Welcome! 🎉</h2>
-      <p id="quoteText" style="font-style:italic; font-size:16px;">Loading quote...</p>
+      <p id="quoteText" style="font-style:italic;">Loading quote...</p>
       <button onclick="closePopup()">Enter site</button>
     </div>
     <div id="balloons"></div>
   </div>
 
-  <!-- Header -->
   <header>
-    <div class="logo">
-      <img src="my_logo.jpg" alt="my logo" onerror="this.src='https://via.placeholder.com/60?text=Logo'">
-      <h1>Manoj Kumar YM - Portfolio</h1>
-    </div>
-    <div>
-      👀 Visitors: <span id="visits" style="font-weight:bold; background:#0077cc; color:#fff; padding:5px 12px; border-radius:12px;">0</span>
-    </div>
-  </header>
+  <div class="logo">
+    <img src="my_logo.jpg" alt="my logo" onerror="this.src='https://via.placeholder.com/60?text=Logo'">
+    <h1>Manoj Kumar YM - Portfolio</h1>
+  </div>
+  <div class="resume-btn">
+    <a href="resume.pdf" id="downloadResume" download>Download Resume</a>
+  </div>
+</header>
+
 
   <!-- Navigation -->
   <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#awards">Awards</a>
-    <a href="blog.html" onclick="alert('Blog coming soon!'); return false;">Blog</a>
-    <a href="#contact">Contact</a>
-    <a href="resume.pdf" id="downloadResume" download style="background:#ff6600; color:#fff;">Download Resume</a>
-  </nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#awards">Awards</a>
+  <a href="#contact">Contact</a>
+  <a href="blog.html">Blog</a>
+</nav>
 
   <!-- Slideshow -->
   <section class="slideshow-container">
@@ -128,7 +267,7 @@
   </section>
 
   <!-- About -->
-  <section id="about">
+  <section id="about" class="section-hidden">
     <h2>Professional Summary</h2>
     <p>Finance & Operations professional with 4.5+ years of experience at Wells Fargo EGS, specializing in risk management, compliance, financial investigations, and process optimization.</p>
     <p>Recognized with the <strong>Wells Fargo Gold Coin Award</strong> for outstanding performance and leadership.</p>
@@ -136,7 +275,7 @@
   </section>
 
   <!-- Skills -->
-  <section id="skills">
+  <section id="skills" class="section-hidden">
     <h2>Skills</h2>
     <ul>
       <li>Finance & Operations</li>
@@ -150,7 +289,7 @@
   </section>
 
   <!-- Experience -->
-  <section id="experience">
+  <section id="experience" class="section-hidden">
     <h2>Professional Experience</h2>
     <h3>Wells Fargo EGS | Finance & Operations Professional</h3>
     <ul>
@@ -163,7 +302,7 @@
   </section>
 
   <!-- Awards -->
-  <section id="awards">
+  <section id="awards" class="section-hidden">
     <h2>🏆 Achievements & Awards</h2>
     <ul class="awards">
       <li>🏅 Wells Fargo Gold Coin Award (2024)</li>
@@ -174,20 +313,31 @@
       <li>💡 Contributed to process automation</li>
     </ul>
   </section>
+<section style="text-align:center; margin:50px 0;">
+  <h2>Latest Blog</h2>
 
+  <!-- Blog Card -->
+  <div style="display:inline-block; max-width:400px; padding:20px; margin-top:20px; border-radius:10px; box-shadow:0 6px 15px rgba(0,0,0,0.1); background:#fff; transition: transform 0.3s; cursor:pointer;" onclick="window.location.href='blog.html'">
+    <h3 style="color:#0077cc; margin-bottom:10px;">From Finance to Data Science: My Journey of Growth and Learning</h3>
+    <p style="color:#555;">Read about my professional journey, lessons learned, and how I’m merging Finance expertise with Data Science and Machine Learning.</p>
+    <span style="color:#0077cc; font-weight:500;">Read More →</span>
+  </div>
+</section>
   <!-- Contact -->
-  <section id="contact" class="contact">
+  <section id="contact" class="contact section-hidden">
     <h2>Contact Me</h2>
     <p>Email: <a href="mailto:ymmanoj.kumar199@gmail.com">ymmanoj.kumar199@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/manoj-ymk-4188b1296" target="_blank">linkedin.com/in/manoj-ymk-4188b1296</a></p>
   </section>
+
 
   <!-- Footer -->
   <footer>
     &copy; 2025 Manoj Kumar YMK | All Rights Reserved
   </footer>
 
-  <!-- Music Toggle Button -->
+  <!-- Toggle Buttons -->
+  <button id="darkModeToggle">Toggle Dark Mode</button>
   <button id="musicToggle">Play Music</button>
 
   <!-- Background Music -->
@@ -196,26 +346,8 @@
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Dark Mode Toggle -->
-  <button id="darkModeToggle">Toggle Dark Mode</button>
-
-  <!-- Scripts -->
   <script>
-    // Visitor Counter
-    function animateCount(element, target) {
-      let current = 0;
-      const increment = Math.ceil(target / 100);
-      const interval = setInterval(() => {
-        current += increment;
-        if(current >= target) { current = target; clearInterval(interval);}
-        element.innerText = current;
-      }, 20);
-    }
-    fetch('https://api.countapi.xyz/hit/ymk-portfolio/visits')
-      .then(res => res.json())
-      .then(data => animateCount(document.getElementById('visits'), data.value));
-
-    // Slideshow
+    // ---------- Slideshow ----------
     let slideIndex = 0;
     function showSlides() {
       const slides = document.getElementsByClassName("slides");
@@ -227,7 +359,7 @@
     }
     showSlides();
 
-    // Welcome Popup & Quote
+    // ---------- Welcome Popup ----------
     const quotes = [
       "Stay positive, work hard, make it happen!",
       "Believe in yourself and all that you are.",
@@ -241,7 +373,7 @@
     document.getElementById("quoteText").textContent = quotes[Math.floor(Math.random()*quotes.length)];
     function closePopup(){ document.getElementById("welcomePopup").style.display="none"; }
 
-    // Balloon Animation
+    // ---------- Balloons ----------
     function createBalloon() {
       const balloon = document.createElement('div');
       balloon.classList.add('balloon');
@@ -252,15 +384,18 @@
       document.getElementById('balloons').appendChild(balloon);
       setTimeout(()=>balloon.remove(),10000);
     }
-    function launchBalloons(){ for(let i=0;i<30;i++){ setTimeout(createBalloon,i*200); } }
+    function launchBalloons(){
+      const count = window.innerWidth < 480 ? 15 : 30;
+      for(let i=0;i<count;i++){ setTimeout(createBalloon,i*200); }
+    }
     launchBalloons();
 
-    // Dark Mode
+    // ---------- Dark Mode ----------
     document.getElementById('darkModeToggle').addEventListener('click',()=>{
       document.body.classList.toggle('dark-mode');
     });
 
-    // Music Play/Pause
+    // ---------- Music ----------
     const music = document.getElementById('bgMusic');
     const musicBtn = document.getElementById('musicToggle');
     musicBtn.addEventListener('click', () => {
@@ -276,6 +411,21 @@
       music.muted = false;
       music.play().catch(() => { musicBtn.textContent = "Play Music"; });
     });
+    // Reveal sections on scroll
+function revealSections() {
+  const sections = document.querySelectorAll('.section-hidden');
+  const windowHeight = window.innerHeight;
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if(sectionTop < windowHeight - 100){  // 100px before viewport bottom
+      section.classList.add('section-visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealSections);
+window.addEventListener('load', revealSections); // Reveal sections visible on load
+
   </script>
 </body>
 </html>
