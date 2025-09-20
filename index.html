@@ -31,28 +31,6 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   
   <style>
- .name-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* keeps date neatly under your name */
-}
-
-#date-time {
-  font-size: 14px;
-  font-weight: 400;
-  color: #ffcc00;
-  margin-top: 5px;
-  text-align: center;
-}
-
-#liveDateTime {
-  display: block;
-  font-size: 16px;
-  font-weight: 500;
-  margin-top: 8px;
-  text-align: center;
-  color: #ffcc00;
-}
     /* ---------- General Reset ---------- */
     body, html { 
       margin:0; 
@@ -117,46 +95,24 @@
       border-radius:50%; 
     }
 
- /* Nav buttons default state */
-nav a {
-  position: relative;
-  padding: 10px 15px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  color: #ffffff;        /* Normal text color */
-  background-color: #0077cc; /* Normal button background */
-}
-
-/* Hover state */
-nav a:hover {
-  color: #ffffff;        /* Hover text color */
-  background-color: #ff3f8e; /* Hover background */
-  box-shadow: 0 0 10px #ff3f8e, 0 0 20px #ff66cc; /* Glow effect */
-  transform: translateY(-2px);
-}
-
-/* Active state (current section) */
-nav a.active {
-  color: #ffffff; 
-  background-color: #33cc33; /* Highlight active button */
-  box-shadow: 0 0 10px #33cc33, 0 0 20px #66ff66;
-}
-
-/* Optional: Animated gradient for hover/active */
-nav a.gradient-hover:hover,
-nav a.gradient-hover.active {
-  background: linear-gradient(90deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
-  background-size: 300% 100%;
-  animation: gradientMove 3s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
+    /* ---------- Navigation ---------- */
+    nav { 
+      display:flex; 
+      justify-content:center; 
+      gap:15px; 
+      background:#333; 
+      padding:10px 0; 
+      position:sticky; 
+      top:75px; 
+      z-index:999;
+    }
+    
+    nav a { 
+      color:#fff; 
+      padding:8px 12px; 
+      border-radius:5px; 
+      transition:0.3s; 
+    }
     
     nav a:hover { 
       background:#0077cc; 
@@ -532,124 +488,61 @@ nav a.gradient-hover.active {
         opacity: 0;
       }
     }
-    /* Nav button hover effects */
+    /* ---------- Enhanced Navigation Buttons ---------- */
 nav a {
-  position: relative;
-  transition: color 0.3s, transform 0.2s;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 12px;
+    position: relative;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #ff3f8e, #ffcc00);
+    background-size: 200% 200%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Glow effect */
-nav a:hover {
-  color: #ff3f8e;
-  text-shadow: 0 0 8px #ff3f8e, 0 0 15px #ff66cc;
-  transform: translateY(-2px);
-}
-
-/* Animated underline */
 nav a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 3px;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(90deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
-  transition: width 0.4s ease;
-  border-radius: 2px;
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    background-position: 100% 0;
+    transform: translateY(-3px);
 }
 
 nav a:hover::after {
-  width: 100%;
-}
-
-/* Sparkle effect on hover */
-nav a:hover::before {
-  content: "✨";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 14px;
-  animation: sparkle 0.6s ease forwards;
-}
-
-@keyframes sparkle {
-  0% { opacity: 0; transform: translateX(-50%) scale(0); }
-  50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
-  100% { opacity: 0; transform: translateX(-50%) scale(1); }
-}
-/* Spark particles for nav buttons */
-.nav-sparkle {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0.8;
-  background: #ff3f8e;
-  animation: sparkleMove 1s linear forwards;
-  z-index: 1000;
-}
-
-@keyframes sparkleMove {
-  0% { transform: translate(0, 0) scale(1); opacity: 1; }
-  100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
-}
-/* Highlight nav buttons */
-nav a {
-  position: relative;
-  padding: 10px 15px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  color: #fff;
-}
-
-/* Gradient background highlight on hover */
-nav a:hover,
-nav a.active {
-  background: linear-gradient(90deg, #ff3f8e, #ffcc00, #33cc33, #3399ff, #ff66cc);
-  background-size: 300% 100%;
-  color: #fff;
-  box-shadow: 0 0 10px #ff3f8e, 0 0 20px #ffcc00, 0 0 30px #33cc33;
-  transform: translateY(-2px);
-  animation: gradientMove 3s ease infinite;
-}
-
-/* Smooth gradient animation */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-/* Navigation bar full-width background */
-nav {
-  display: flex;
-  justify-content: center; /* center the buttons */
-  gap: 15px;
-  flex-wrap: wrap;          /* optional: wrap on smaller screens */
-  padding: 15px 0;          /* vertical padding */
-  background: hsl(190, 89%, 48%);         /* same as header background */
-  position: sticky;          /* optional: sticky nav */
-  top: 75px;                /* adjust so it sticks below header */
-  z-index: 999;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* subtle shadow */
+    width: 100%;
 }
 
   </style>
 </head>
 
 <body>
- 
-  <!-- Header -->
-  <header data-aos="fade-down">
-  <div class="logo">
-    <img src="my_logo.jpg" alt="my logo" onerror="this.src='https://via.placeholder.com/60?text=Logo'">
-    <div class="name-wrapper">
-      <h1 class="glow-text textured-text">Manoj Kumar YM - Portfolio</h1>
-      <p id="date-time"></p> <!-- This will show live date/time -->
+  <!-- Welcome Popup -->
+  <div id="welcomePopup">
+    <div class="popup-content">
+      <h2>Welcome to My Portfolio!</h2>
+      <p id="quoteText"></p>
+      <div id="balloons"></div>
+      <button id="enterButton">Enter Website</button>
     </div>
   </div>
+
+  <!-- Header -->
+  <header data-aos="fade-down">
+    <div class="logo">
+      <img src="my_logo.jpg" alt="my logo" onerror="this.src='https://via.placeholder.com/60?text=Logo'">
+      <h1 class="glow-text textured-text">Manoj Kumar YM - Portfolio</h1>
+    </div>
     
     <!-- Download Resume Button -->
     <a href="#" id="downloadResume" class="party-download-btn">📄 Download Resume</a>
@@ -837,34 +730,51 @@ nav {
         document.body.classList.remove('flash-effect'); 
       }, 500); 
     });
-let audioStarted = false;
 
-// Start music on first user interaction
-function startAudioOnInteraction() {
-  if (!audioStarted) {
-    audio.play().catch(() => console.log("User interaction required to play audio"));
-    audioStarted = true;
-
-    // After starting, update button text
-    musicButton.innerText = 'Pause Music';
+    // Welcome quote
+    const quotes = [
+      "Stay positive, work hard, make it happen!",
+      "Believe in yourself and all that you are.",
+      "Every day is a new opportunity to shine!",
+      "Keep going, your breakthrough is coming!",
+      "Happiness is homemade – smile today!",
+      "Small steps each day lead to big results!",
+      "Your attitude determines your direction!",
+      "Learning never stops; grow a little every day!"
+    ];
     
-    // Remove event listeners after first interaction
-    window.removeEventListener('click', startAudioOnInteraction);
-    window.removeEventListener('keydown', startAudioOnInteraction);
-    window.removeEventListener('touchstart', startAudioOnInteraction);
-  }
-}
+    const quoteText = document.getElementById("quoteText");
+    quoteText.innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-// Listen for first user interaction
-window.addEventListener('click', startAudioOnInteraction);
-window.addEventListener('keydown', startAudioOnInteraction);
-window.addEventListener('touchstart', startAudioOnInteraction);
+    // Continuous balloons
+    function createBalloon() {
+      const balloon = document.createElement('div');
+      balloon.classList.add('balloon');
+      const colors = ['#ff4d4d','#ffcc00','#33cc33','#3399ff','#ff66cc'];
+      balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.left = Math.random() * 80 + '%';
+      balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
+      balloon.style.width = 15 + Math.random() * 15 + 'px';
+      balloon.style.height = 20 + Math.random() * 20 + 'px';
+      balloon.style.opacity = Math.random() * 0.8 + 0.2;
+      document.getElementById('balloons').appendChild(balloon);
+      setTimeout(() => balloon.remove(), 10000);
+    }
+    
+    let balloonInterval = setInterval(() => { 
+      if(document.getElementById('welcomePopup').style.display !== 'none') createBalloon(); 
+    }, 200);
+
+    document.getElementById("enterButton").addEventListener("click", () => { 
+      document.getElementById("welcomePopup").style.display = "none"; 
+      clearInterval(balloonInterval); 
+    });
 
     // Music autoplay + play/pause
     const musicList = ['music1.mp3','music2.mp3','music3.mp3','music4.mp3','music5.mp3'];
     let audio = new Audio(musicList[Math.floor(Math.random() * musicList.length)]);
     audio.loop = false; 
-    
+    audio.play();
     
     const musicButton = document.getElementById('musicButton');
     musicButton.addEventListener('click', () => { 
@@ -1035,61 +945,6 @@ window.addEventListener('touchstart', startAudioOnInteraction);
 
     // Generate butterflies every 500ms
     setInterval(createButterfly, 500);
-    
-    // Live Date & Time
-function updateDateTime() {
-  const now = new Date();
-  const options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  };
-  document.getElementById('liveDateTime').innerText = now.toLocaleDateString('en-US', options);
-}
-
-// Update every second
-setInterval(updateDateTime, 1000);
-updateDateTime();
-// Continuous sparkles for nav buttons
-const navLinks = document.querySelectorAll("nav a");
-
-navLinks.forEach(link => {
-  link.style.position = "relative"; // make sure relative for absolute sparks
-
-  link.addEventListener("mouseenter", () => {
-    const sparkleInterval = setInterval(() => {
-      const sparkle = document.createElement("div");
-      sparkle.className = "nav-sparkle";
-
-      // Random color
-      const colors = ["#ff3f8e","#04C2C9","#2E55C1","#FFAA00","#8DFF33"];
-      sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
-
-      // Position relative to link
-      const rect = link.getBoundingClientRect();
-      const x = Math.random() * rect.width;
-      const y = Math.random() * rect.height;
-      sparkle.style.left = x + "px";
-      sparkle.style.top = y + "px";
-
-      // Random movement
-      const moveX = (Math.random() - 0.5) * 50 + "px";
-      const moveY = (Math.random() - 0.5) * 50 + "px";
-      sparkle.style.setProperty("--x", moveX);
-      sparkle.style.setProperty("--y", moveY);
-
-      document.body.appendChild(sparkle);
-      setTimeout(() => sparkle.remove(), 1000);
-    }, 100);
-
-    link.addEventListener("mouseleave", () => clearInterval(sparkleInterval), { once: true });
-  });
-});
-
   </script>
 </body>
 </html>
