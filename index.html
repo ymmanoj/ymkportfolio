@@ -463,75 +463,31 @@
       position: relative;
     }
 
-
+    /* Butterfly animation */
+    .butterfly {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.9;
+      animation: flutter linear forwards;
     }
-    /* ---------- Enhanced Navigation Buttons ---------- */
-nav a {
-    color: #fff;
-    padding: 10px 18px;
-    border-radius: 12px;
-    position: relative;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    background: linear-gradient(135deg, #ff3f8e, #ffcc00);
-    background-size: 200% 200%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
 
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    background: #fff;
-    border-radius: 2px;
-    transition: width 0.3s ease;
-}
-
-nav a:hover {
-    background-position: 100% 0;
-    transform: translateY(-3px);
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-/* Mobile adjustments */
-@media (max-width: 768px) {
-
-  /* Header & nav */
-  header { flex-direction: column; padding: 10px; }
-  nav { flex-wrap: wrap; top: auto; position: relative; padding: 5px 0; }
-
-  /* Reduce section padding */
-  section { padding: 30px 15px; margin: 30px auto; }
-
-  /* Cards */
-  section .card { padding: 20px; }
-
-  /* Slideshow images */
-  .slides img { height: auto; max-height: 300px; }
-
-  /* Hide heavy effects on mobile */
-  .trailDot,
-  .sparkle,
-  .party-download-btn,
-  #musicButton {
-    display: none !important;
-  }
-
-  /* Balloons only in welcome popup, reduce size */
-  .balloon { width: 10px; height: 15px; }
-
-  /* Font size adjustment */
-  .glow-text { font-size: 1.8rem; }
-  section h2 { font-size: 1.5rem; }
-  section h3 { font-size: 1.2rem; }
-
-}
+    @keyframes flutter {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 1; }
+      50% {
+        transform: translate(calc(100vw * var(--x)), calc(-200px * var(--y))) rotate(360deg);
+      }
+      100% {
+        transform: translate(calc(100vw * var(--x)), calc(-400px * var(--y))) rotate(720deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 
@@ -707,7 +663,6 @@ nav a:hover::after {
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-
     // Initialize AOS
     AOS.init({ duration: 1000 });
 
@@ -929,6 +884,32 @@ nav a:hover::after {
       if(Math.random() < 0.5) randomFlash();
     }, 3000 + Math.random()*5000);
 
+    // Butterfly animation
+    function createButterfly() {
+      const butterfly = document.createElement('div');
+      butterfly.classList.add('butterfly');
+
+      // Random horizontal position
+      butterfly.style.left = Math.random() * 90 + 'vw';
+      butterfly.style.top = '60px';
+
+      // Random speed & path multiplier
+      butterfly.style.setProperty('--x', Math.random());
+      butterfly.style.setProperty('--y', Math.random());
+
+      // Random size
+      const size = 20 + Math.random() * 20;
+      butterfly.style.width = size + 'px';
+      butterfly.style.height = size + 'px';
+
+      document.body.appendChild(butterfly);
+
+      // Remove after animation
+      setTimeout(() => butterfly.remove(), 8000);
+    }
+
+    // Generate butterflies every 500ms
+    setInterval(createButterfly, 500);
   </script>
 </body>
 </html>
