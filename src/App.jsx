@@ -663,24 +663,6 @@ export default function App() {
             </div>
             <div className="project-number">01</div>
           </div>
-
-          <div className="project-card fade-in" style={{ transitionDelay: ".1s", opacity: .72 }}>
-            <div>
-              <div className="project-featured">In Development · Finance Tool</div>
-              <h3 className="project-title" style={{ color: "var(--muted)" }}>Financial Reconciliation Dashboard</h3>
-              <p className="project-desc">
-                A data analytics dashboard for visualising reconciliation trends, break analysis, and SLA compliance metrics.
-                Built with React, Python, and Power BI integration — leveraging 5 years of domain expertise.
-              </p>
-              <div className="project-tech-row">
-                {["React","Python","Power BI","SQL","FastAPI","MongoDB"].map(t => <span key={t} className="tech-pill">{t}</span>)}
-              </div>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: ".5rem", fontFamily: "var(--ff-mono)", fontSize: ".72rem", padding: ".4rem 1rem", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--muted)", letterSpacing: ".08em", marginTop: ".8rem" }}>
-                ⏳ Coming Soon
-              </div>
-            </div>
-            <div className="project-number">02</div>
-          </div>
         </div>
       </section>
 
