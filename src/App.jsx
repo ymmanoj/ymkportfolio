@@ -332,12 +332,12 @@ const BANNER_SLIDES = [
 ];
 
 const SKILLS = [
-  { icon: "💰", name: "Financial Operations",  items: "Fund Accounting · Transaction Processing · Reconciliation · MIS Reporting · Audit Support" },
-  { icon: "⚙️", name: "Process & Compliance",  items: "US GAAP / IFRS · SOP Optimization · Risk Management · Internal Controls · Regulatory Compliance" },
-  { icon: "📊", name: "Data & Analytics",       items: "Advanced Excel · Pivot Tables · VLOOKUP · Reporting Dashboards · Exception Tracking" },
-  { icon: "🧪", name: "QA & Testing",           items: "UAT Planning · Test Case Preparation · RPA Testing · Defect Tracking · Regression Testing" },
-  { icon: "☁️", name: "Cloud & Databases",      items: "MongoDB Atlas · Cloudinary · REST APIs · Node.js · Express.js · React" },
-  { icon: "📈", name: "Learning Stack",          items: "SQL · Python · Power BI · Tableau · Financial Data Analytics · Fraud Analytics" },
+  { icon: "💰", name: "Fund Accounting & Reporting", items: "Financial Statement Preparation · Account Reconciliation · Reporting Support · Audit & Compliance" },
+  { icon: "⚙️", name: "Transaction & Process Operations", items: "High-volume Transaction Processing · Break Investigation · SLA Management · SOP Optimization" },
+  { icon: "📊", name: "Data Analysis & Excel", items: "Advanced Excel (Pivot Tables, VLOOKUP) · MIS Reporting · Exception Tracking · Data Interpretation" },
+  { icon: "🔒", name: "Risk & Controls", items: "Internal Controls · Risk Management · Regulatory Compliance · US GAAP / IFRS (basic)" },
+  { icon: "🤖", name: "Automation & Efficiency", items: "Automation Opportunity Identification · Workflow Standardization · RPA Support · Process Improvement" },
+  { icon: "👥", name: "Leadership & Collaboration", items: "Team Leadership · Training & Mentoring · Stakeholder Communication · Global US/EMEA Teamwork" },
 ];
 
 const AWARDS = [
@@ -539,11 +539,10 @@ export default function App() {
         {[15, 40, 60, 85].map(l => <div key={l} className="hero-grid-line" style={{ left: `${l}%` }} />)}
 
         <div className="hero-content">
-          <div className="hero-eyebrow fade-in">Senior Financial Operations Professional</div>
+          <div className="hero-eyebrow fade-in">Senior Financial Operations Professional | IT Banking Operations</div>
           <h1 className="hero-h1 fade-in" style={{ transitionDelay: ".1s" }}>Manoj<br /><em>Kumar</em> YM</h1>
           <p className="hero-sub fade-in" style={{ transitionDelay: ".2s" }}>
-            ~5 years in banking & financial services · Wells Fargo EGS ·
-            Full-stack developer building cloud-integrated finance tools · Chennai, Tamil Nadu
+            Senior Financial Operations Professional with ~5 years in banking and financial services, specializing in transaction processing, account reconciliation, and financial reporting support. Strong analytical, problem-solving, and technology skills with expertise in Excel and data-driven decision-making. Experienced in US/EMEA operational environments.
           </p>
           <div className="hero-cta-row fade-in" style={{ transitionDelay: ".3s" }}>
             <a href="#projects" className="btn-outline">View Projects ↓</a>
@@ -552,7 +551,7 @@ export default function App() {
           <div className="hero-stats fade-in" style={{ transitionDelay: ".45s" }}>
             {[
               { num: 5, suffix: "+", label: "Years Experience" },
-              { num: 3, suffix: "+", label: "Years Zero Errors" },
+              { num: 4, suffix: "+", label: "Years Zero Errors" },
               { num: 5, suffix: "",  label: "Awards Won" },
               { num: 1, suffix: "",  label: "Cloud Project" },
             ].map(({ num, suffix, label }) => (
@@ -570,10 +569,10 @@ export default function App() {
         <div className="about-grid">
           <div className="about-text fade-in">
             <div className="section-label">About Me</div>
-            <h2 className="section-title" style={{ fontSize: "2.2rem" }}>Finance meets <em>Technology</em></h2>
-            <p>I'm a Senior Operations Processor at <strong>Wells Fargo EGS</strong> with deep expertise in fund accounting, transaction reconciliation, and financial reporting. Over 5 years, I've maintained a flawless accuracy record while leading teams and driving process improvements.</p>
-            <p>Beyond finance, I build <strong>full-stack web applications</strong> — bridging domain expertise with modern cloud technologies. My flagship project integrates <strong>MongoDB Atlas</strong> and <strong>Cloudinary</strong> to deliver scalable, media-rich experiences.</p>
-            <p>I also bring <strong>QA and testing experience</strong> — including UAT execution and test case preparation for RPA projects — adding a structured, quality-first mindset to everything I build.</p>
+            <h2 className="section-title" style={{ fontSize: "2.2rem" }}>Finance & Operations <em>Leadership</em></h2>
+            <p>Senior Financial Operations Professional with ~5 years of experience in banking and financial services. Specializing in transaction processing, account reconciliation, and financial reporting support. Demonstrates strong analytical, problem-solving, and technology skills with expertise in Excel and data-driven decision-making.</p>
+            <p>Proven ability to lead teams, mentor peers, and drive process improvements while ensuring accuracy and adherence to strict deadlines. Experienced in global (US/EMEA) operational environments and in collaborating with Compliance, Technology, and Audit stakeholders.</p>
+            <p>Also experienced in full-stack development and QA practices, building cloud-integrated finance tools while maintaining a quality-first mindset for financial operations and process automation.</p>
             <div className="about-tag-row">
               {["Chennai, Tamil Nadu","US/EMEA Shifts","English · Tamil · Telugu","MBA – Finance","SRM University"].map(t => (
                 <span key={t} className="tag">{t}</span>
@@ -609,6 +608,9 @@ export default function App() {
         <div className="skills-inner">
           <div className="section-label fade-in">Expertise</div>
           <h2 className="section-title fade-in" style={{ transitionDelay: ".1s" }}>Skills & <em>Capabilities</em></h2>
+          <p className="hero-sub fade-in" style={{ transitionDelay: ".15s", marginTop: ".5rem" }}>
+            Vibe coder building websites with AI, plus UAT testing exposure in high-compliance banking operations.
+          </p>
           <div className="skills-grid">
             {SKILLS.map((s, i) => (
               <div key={s.name} className="skill-card fade-in" style={{ transitionDelay: `${i * 0.08}s` }}>
@@ -702,10 +704,14 @@ export default function App() {
             </div>
             <div className="uat-points fade-in" style={{ transitionDelay: ".15s" }}>
               {[
-                { icon: "🤖", title: "RPA Project – Test Case Preparation",   text: "Contributed to authoring structured test cases for RPA automation workflows, ensuring business rules were correctly captured and edge cases were mapped before deployment." },
-                { icon: "🧪", title: "UAT Execution & Sign-Off",              text: "Participated in User Acceptance Testing cycles — executing test scripts, logging defects, verifying fixes, and coordinating with technology teams to achieve UAT sign-off." },
-                { icon: "📋", title: "Process Validation & SOP Alignment",    text: "Ensured automated processes aligned with existing SOPs and compliance frameworks, bridging the gap between operations and technology teams during QA cycles." },
-                { icon: "🔍", title: "Defect Tracking & Root Cause Analysis", text: "Applied root cause analysis skills (honed through financial reconciliation) to identify and document defects with clear reproduction steps and business impact assessments." },
+                { icon: "✅", title: "Transaction Review & Validation",   text: "Performed detailed review and validation of financial transactions and account balances, supporting accurate financial reporting and audit readiness." },
+                { icon: "🧾", title: "Reconciliation & Investigation",      text: "Conducted reconciliation and investigation of discrepancies to ensure data integrity aligned with financial reporting standards." },
+                { icon: "📊", title: "Financial Reporting Support",       text: "Supported preparation of financial data and reports used in internal and external audit reviews." },
+                { icon: "💡", title: "SME, Coaching & Leadership",         text: "Acted as Subject Matter Expert (SME), providing training, coaching, and performance feedback to team members." },
+                { icon: "⏱", title: "SLA & Workflow Management",        text: "Led workflow prioritization, assigned tasks, and ensured timely completion within strict SLA timelines." },
+                { icon: "🤝", title: "Cross-functional Collaboration",     text: "Collaborated with Compliance, Technology, and Audit teams to resolve financial discrepancies and client issues." },
+                { icon: "⚙️", title: "Automation & Process Improvements", text: "Identified automation opportunities and implemented process improvements, reducing manual effort and improving efficiency." },
+                { icon: "🏆", title: "Awards & Recognition",              text: "Recognized with Skill-Based Pay Award (2025) for supporting multiple teams, enhancing SOPs, and delivering impactful training initiatives." },
               ].map(pt => (
                 <div key={pt.title} className="uat-point">
                   <div className="uat-point-icon">{pt.icon}</div>
@@ -738,6 +744,25 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── EDUCATION & TECH SKILLS ── */}
+      <section id="education" style={{ padding: "5rem 4rem" }}>
+        <div className="section-label fade-in">Background</div>
+        <h2 className="section-title fade-in" style={{ transitionDelay: ".1s" }}>Education & Technical Skills</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "1rem" }}>
+          <div className="fade-in" style={{ transitionDelay: ".15s" }}>
+            <h3 style={{ marginBottom: ".6rem" }}>Education</h3>
+            <p><strong>MBA – Finance</strong> · SRM University (2023 – 2025)</p>
+            <p><strong>B.Com – Corporate Secretaryship</strong> · Apollo Arts and Science College (2017 – 2020)</p>
+          </div>
+          <div className="fade-in" style={{ transitionDelay: ".2s" }}>
+            <h3 style={{ marginBottom: ".6rem" }}>Technical Skills</h3>
+            <p>Advanced Excel, MIS Reporting Tools, Transaction Monitoring Systems</p>
+            <p>Data Analysis & Reporting Dashboards, Exception Tracking</p>
+            <p>Currently learning SQL, Python, Power BI, Tableau (Data Analytics for Financial / Fraud Analysis)</p>
+          </div>
+        </div>
+      </section>
+
       {/* ── CONTACT ── */}
       <div className="contact-bg" id="contact">
         <div className="contact-inner">
@@ -751,7 +776,7 @@ export default function App() {
                 { icon: "📞", label: "Phone",     text: "9043050190",                           href: "tel:9043050190" },
                 { icon: "🔗", label: "LinkedIn",  text: "linkedin.com/in/manoj-ymk-4188b1296",  href: "https://www.linkedin.com/in/manoj-ymk-4188b1296" },
                 { icon: "🌐", label: "Portfolio", text: "ymmanoj.github.io/ymkportfolio",        href: "https://ymmanoj.github.io/ymkportfolio/" },
-                { icon: "📍", label: "Location",  text: "Guduvanchery, Chennai, Tamil Nadu",     href: "#" },
+                { icon: "📍", label: "Location",  text: "Chennai",                             href: "#" },
               ].map(c => (
                 <a key={c.label} href={c.href} className="contact-item" target={c.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
                   <span className="contact-item-icon">{c.icon}</span>
